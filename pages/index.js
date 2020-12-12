@@ -1,7 +1,6 @@
 import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack, Box } from '@chakra-ui/react';
+import { useColorMode, Heading, Text, Flex, Stack, Image } from '@chakra-ui/react';
 
-import {CustomLink} from '../components/MDXComponents';
 import Container from '../components/Container';
 import BlogPost from '../components/BlogPost';
 import Subscribe from '../components/Subscribe';
@@ -56,8 +55,8 @@ const Index = ({ allPosts }) => {
           alignItems="flex-start"
           maxWidth={MAX_WIDTH}
         >
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-            Hey, I’m Lucas Bernalte
+          <Heading style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} letterSpacing="tight" mt="-4rem" mb={2} as="h1" size="2xl">
+            <Image width="200px" mr="-4rem" src="/static/images/hero-me.png"/> Hey, I’m Lucas Bernalte
           </Heading>
           <Text mt={16} color={secondaryTextColor[colorMode]} textStyle="p">
             Ingeniero y desarrollador Full Stack en JavaScript con experiencia. Trabajo en Electronic Arts como <strong>Frontend Engineer</strong>.

@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import styled from '@emotion/styled';
 import {FiSun, FiMoon} from 'react-icons/fi';
-import { useColorMode, Button, Flex, Box, IconButton, Avatar } from '@chakra-ui/react';
+import { useColorMode, Button, Flex, Box, IconButton } from '@chakra-ui/react';
 import {MAX_WIDTH} from '../lib/constants';
 
 const StickyNav = styled(Flex)`
@@ -39,9 +39,9 @@ const Navbar = () => {
             mx="auto"
         >
         <NextLink href="/" passHref>
-          <IconButton as="a" variant="link" p={[1, 4]}>
-            <Avatar name="Lucas Bernalte" src="/static/favicons/barba.png" />
-          </IconButton>
+          <Button as="a" variant="ghost" p={[1, 4]}>
+            Lucas Bernalte
+          </Button>
         </NextLink>
         <Box>
           <NextLink href="/blog" passHref>
