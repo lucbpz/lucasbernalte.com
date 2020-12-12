@@ -43,7 +43,7 @@ const Index = ({ allPosts }) => {
           right: 0,
           height: '24rem',
           pointerEvents: 'none',
-          background: 'url(/static/images/web-bg.png)50% 0 no-repeat',
+          background: colorMode === 'light' ? 'url(/static/images/web-bg.png)50% 0 no-repeat' : 'url(/static/images/web-bg-inverted.png)50% 0 no-repeat',
           opacity: .15,
           maskImage: 'linear-gradient(to top,transparent 20%,black 80%)',
           WebkitMaskImage: 'linear-gradient(to top,transparent 20%,black 80%)'

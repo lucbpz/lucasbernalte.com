@@ -38,7 +38,7 @@ const NowPlaying = () => {
           height="60px"
           width="60px"
           borderRadius={8}
-          src={data?.albumImageUrl || '/static/images/placeholder.jpg'}
+          src={data?.albumImageUrl || '/static/images/placeholder-small.jpg'}
         />
       </Skeleton>
       <Stack

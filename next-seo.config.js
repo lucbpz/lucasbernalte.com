@@ -14,10 +14,10 @@ const SEO = {
     description,
     images: [
       {
-        url: 'https://lucasbernalte.com/static/favicons/barba.png',
+        url: 'https://lucasbernalte.com/static/favicons/favicon.ico',
         alt: title,
-        width: 512,
-        height: 512
+        width: 32,
+        height: 32
       }
     ]
   },
