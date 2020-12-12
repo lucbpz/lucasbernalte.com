@@ -1,0 +1,19 @@
+{
+    "name": "Lucas Bernalte",
+    "short_name": "lucasbernalte.com",
+    "description": "Desarrollador Frontend, JavaScript, React.",
+    "icons": [
+        {
+            "src": "/static/favicons/barba.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "standalone",
+    "dir": "ltr",
+    "lang": "es-ES",
+    "orientation": "portrait-primary",
+    "start_url": "../../index.html"
+}
