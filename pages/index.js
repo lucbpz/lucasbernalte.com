@@ -36,18 +36,20 @@ const Index = ({ allPosts }) => {
         m="0 auto 4rem auto"
         maxWidth={MAX_WIDTH}
       >
-        <div style={{
-          position: 'absolute',
-          top: '6rem',
-          left: 0,
-          right: 0,
-          height: '24rem',
-          pointerEvents: 'none',
-          background: colorMode === 'light' ? 'url(/static/images/web-bg.png)50% 0 no-repeat' : 'url(/static/images/web-bg-inverted.png)50% 0 no-repeat',
-          opacity: .15,
-          maskImage: 'linear-gradient(to top,transparent 20%,black 80%)',
-          WebkitMaskImage: 'linear-gradient(to top,transparent 20%,black 80%)'
-        }}></div>
+        <div style={{position: 'relative', height: '1px', width: '110%'}}>
+          <div style={{
+            position: 'absolute',
+            top: '-56px',
+            left: '-112px',
+            right: 0,
+            height: '24rem',
+            pointerEvents: 'none',
+            background: colorMode === 'light' ? 'url(/static/images/web-bg.png)50% 0 no-repeat' : 'url(/static/images/web-bg-inverted.png)50% 0 no-repeat',
+            opacity: .15,
+            maskImage: 'linear-gradient(to top,transparent 20%,black 80%)',
+            WebkitMaskImage: 'linear-gradient(to top,transparent 20%,black 80%)'
+          }}></div>
+        </div>
         <Flex
           flexDirection="column"
           justifyContent="flex-start"
