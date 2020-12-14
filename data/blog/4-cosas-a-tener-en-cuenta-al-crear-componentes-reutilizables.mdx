@@ -1,6 +1,6 @@
 ---
 title: '4 pasos para crear una buena API de componente reusable'
-date: '2020-11-18T05:35:07.322Z'
+date: '2020-12-18T05:35:07.322Z'
 summary: 'Cómo crear componentes reutilizables con React para un catálogo de componentes'
 image: '/static/images/api-component/user-interface.jpg'
 ---
@@ -52,7 +52,7 @@ Sin embargo, estamos dejando al usuario de nuestro componente la posibilidad de 
 <Notification error info message="mensaje" />
 ```
 
-Esto que acabamos de ver es algo a evitar cuando estamos creando un componente reutilizable, y más si lo van a utilizar personas de fuera de nuestro equipo, donde debemos dejar un componente completamente testeado y documentado. Tenemos la opción de crear un test para indicar cuál es el comportamiento correcto en este caso
+Esto que acabamos de ver es algo a evitar cuando estamos creando un componente reutilizable, y más si lo van a utilizar personas de fuera de nuestro equipo, donde debemos dejar un componente completamente testeado y documentado. Tenemos la opción de crear un test para indicar cuál es el comportamiento correcto en este caso:
 
 ```jsx
 describe('when error and info are set', () => {
@@ -60,7 +60,7 @@ describe('when error and info are set', () => {
 };
 ```
 
-o mejor, evitar ese estado, haciendo que "error", "info" y "warning" sean valores de un `type`
+O mejor, evitar ese estado, haciendo que "error", "info" y "warning" sean valores de un `type`:
 
 ```jsx
 <Notification type="warning" message="warning message!" />
@@ -87,7 +87,7 @@ Un ejemplo muy básico sería un componente que renderiza un listado de items. E
 </RenderList>
 ```
 
-acepte en su variable data tanto
+acepte en su variable data tanto:
 
 ```jsx
 const messages = new Array(20).fill().map((_, i) => ({
@@ -95,7 +95,7 @@ const messages = new Array(20).fill().map((_, i) => ({
 }));
 ```
 
-como
+como:
 
 ```jsx
 const messages = new Array(20).fill().map((_, i) => ({
@@ -115,8 +115,8 @@ Siguiendo el patrón que se comenta en esa charla, y tomando como el ejemplo del
 
 1. Desarrollamos componente que permite renderizar una lista de items.
 2. Creamos la abstracción para que se pueda pasar contenido JSX.
-3. Hay un nuevo requerimiento, cada mensaje irá con un icono, y la mayoría de las veces será el mismo.
-4. Creamos una abstracción para poder pasar un icono que se repetirá con cada mensaje. Ahora nuestro componente se usaría:
+3. Hay un nuevo requerimiento, cada item irá con un icono, y la mayoría de las veces será el mismo.
+4. Creamos una abstracción para poder pasar un icono que se repetirá con cada item. Ahora nuestro componente se usaría:
 
     ```jsx
     <RenderList data={messages} icon="fa-file">
@@ -126,7 +126,7 @@ Siguiendo el patrón que se comenta en esa charla, y tomando como el ejemplo del
     ```
 
 5. Esta abstracción nos hace pensar en el tiempo que ahorramos con esa nueva prop.
-6. Ahora pensamos qué pasa si queremos diferentes iconos y refactorizamos para poder pasar `icons`
+6. Ahora pensamos qué pasa si queremos diferentes iconos y refactorizamos para poder pasar `icons`:
 
     ```jsx
     <RenderList data={messages} icons={["fa-file", "fa-file", "fa-danger"]}>
@@ -135,30 +135,33 @@ Siguiendo el patrón que se comenta en esa charla, y tomando como el ejemplo del
     </RenderList>
     ```
 
+Esto nos ha llevado a una abstracción que parece no ser la mejor a la hora de resolver el problema inicial, ya que el requisito de
+renderizar también un icono se podía hacer desde el principio, pasándole al componente una lista de JSX personalizada.
+
 > Lo que fue una abstracción universal, ahora se comporta diferente para diferentes casos de uso. - Sandi Metz
 
 ## Piensa en la Developer eXperience
 
-Crea los componentes para el usuario más importante del mundo - tu yo del futuro.
+Crea los componentes para el usuario más importante del mundo - tu "yo del futuro".
 
-Porque todo lo visto anteriormente no tiene por qué ser para un usuario desconocido - puede ser para tu equipo o para ti. Y además de pensar en la API, ten en cuenta que una parte del mantenimiento del software es la documentación y el testing, y con el tiempo nos olvidaremos de cosas si no las dejamos por escrito. Redacta una documentación que no dé lugar a dudas y tests que a ser posible puedan ser usados como documentación, ya que por la sintaxis podemos hacer que se escriban de forma que describan su comportamiento (además es como se debería testear).
+Porque todo lo visto anteriormente no tiene por qué ser para un usuario desconocido - puede ser para tu equipo y/o para ti. Y además de pensar en la API, ten en cuenta que una parte del mantenimiento del software es la documentación y el testing, y con el tiempo nos olvidaremos de cosas si no las dejamos por escrito. Redacta una documentación que no dé lugar a dudas y tests que puedan ser usados como documentación, ya que por la sintaxis podemos hacer que se escriban de forma que describan su comportamiento (además es como se debería testear).
 
 La idea es tardar lo mínimo en entender cómo funciona el componente.
 
-Porque la documentación puede hacer que funcione nuestro componente, o puede "romperlo". Cuando un desarrollador está usando tu componente por primera vez, lo primero que hará será leer la documentación. Si tu guía inicial no está clara, puede que pierdas a este usuario. 
+Porque la documentación y los tests pueden hacer que "triunfe" nuestro componente, o pueden "romperlo". Cuando un desarrollador está usando tu componente por primera vez, lo primero que hará será leer la documentación. Si tu guía inicial no está clara, puede que pierdas a este usuario. 
 
 Tendemos a enfocarnos mucho en los detalles de implementación y perdemos la visión de los desarrolladores que entran por primera vez y necesitan tener una visión clara de lo que van a usar.
 
-En definitiva, es nuestro trabajo asegurar que se han tenido en cuenta las necesidades del desarrollador.
+En definitiva, también es nuestro trabajo asegurar que se han tenido en cuenta las necesidades del desarrollador.
 
-Piensa en las veces que como usuario has seguido este proceso:
+Piensa en las veces que como desarrollador, cuando buscas un componente has seguido este proceso:
 - Necesitas X
 - Buscas y encuentras una librería que en teoría parece que hace X.
 - No consigues el resultado que buscas, y desistes, desinstalando la librería y buscando otra o fabricándola tú mismo.
 
 ## Conclusiones
 
-Espero que este artículo te ayude a la hora de crear tu siguiente componente dentro de un catálogo o a la hora de crear un componente de forma aislada. Estos criterios son los que tengo como fundamento, aunque hay casos especiales y tampoco hay que tener un plan para seguirlo 100% a la perfección, pero con estos 4 puntos seguro que ves tu componente de otra manera :). Buena suerte!
+Espero que este artículo te ayude a la hora de crear tu siguiente componente dentro de un catálogo o a la hora de crear un componente de forma aislada o incluso para crear un catálogo de componentes completo. Estos criterios son los que tengo como fundamento, aunque hay casos especiales y tampoco hay que tener un plan para seguirlo 100% a la perfección, pero con estos 4 puntos seguro que ves tu componente de otra manera 😊. Buena suerte!
 
 ```jsx
 expect(newComponent).toBeBetterThan(oldComponent)

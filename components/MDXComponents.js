@@ -167,8 +167,8 @@ import {
     td: TData,
     a: CustomLink,
     p: (props) => <Text as="p" textStyle="p" mt={4} lineHeight="tall" {...props} />,
-    ul: (props) => <Box as="ul" textStyle="p" pt={2} pl={4} ml={2} {...props} />,
-    ol: (props) => <Box as="ol" textStyle="p" pt={2} pl={4} ml={2} {...props} />,
+    ul: (props) => <Box as="ul" w="full" textStyle="p" pt={2} pl={4} ml={2} {...props} />,
+    ol: (props) => <Box as="ol" w="full" textStyle="p" pt={2} pl={4} ml={2} {...props} />,
     li: (props) => <Box as="li" textStyle="p" pb={1} {...props} />,
     blockquote: Quote
   };
