@@ -58,19 +58,21 @@ const Footer = () => (
         ><AiOutlineMail /></IconButton>
       </Link>
     </div>
-    <Text>
-      Crafted with <Icon><FaHeart color="red"/></Icon>by Lucas Bernalte. <NextLink href="/inspiration" passHref>
+    <Flex align="center" justify="center" wrap="wrap">
+      <Text>Crafted with <Icon ml={1}><FaHeart color="red"/></Icon>by Lucas Bernalte.</Text>
+      <NextLink href="/inspiration" passHref>
         <Link
           fontSize="sm"
           color="gray.500"
           minWidth="100px"
           mr={2}
+          ml={1}
           title="Find the inspiration"
         >
           find the inspiration.
         </Link>
-        </NextLink>
-    </Text>
+      </NextLink>
+    </Flex>
   </Flex>
 );
 
