@@ -44,7 +44,7 @@ const About = () => {
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
+          m="2rem auto 2rem auto"
           maxWidth={MAX_WIDTH}
         >
           <Flex
@@ -56,19 +56,19 @@ const About = () => {
             <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
               Sobre mí
             </Heading>
-            <Text color={secondaryTextColor[colorMode]} my={4} textStyle="p">
+            <Text my={4} textStyle="p">
               Hey, I’m Lucas Bernalte. Soy desarrollador web y experto en Frontend 
               con la misión de <strong>ayudar a desarrolladores junior a progresar en su carrera dentro del software</strong>.
               Actualmente trabajo con React y escribo artículos sobre lo relacionado con Front End, lo que "da vida" al software.
             </Text>
             <Image src="static/images/about-me/me.jpg" />
-            <Text color={secondaryTextColor[colorMode]} my={4} textStyle="p">
+            <Text my={4} textStyle="p">
             Cuando me adentré en el mundo del software y comencé a trabajar no sabia realmente qué me esperaba. 
             Pero lo que he encontrado es una oportunidad para desarrollar mi verdadera pasión y también poner mi 
             granito de arena hacia un mundo mejor.
             Para ello, contribuyo al open source, comparto conocimiento y ayudo a otros desarrolladores a convertirse en mejores desarrolladores.
             </Text>
-            <Text color={secondaryTextColor[colorMode]} my={4} textStyle="p">
+            <Text my={4} textStyle="p">
               Pronto esta web se convertirá en un  <strong>digital garden</strong> con artículos y enlaces sobre tecnologías de Frontend
               que servirán de apoyo para poder avanzar en la carrera como desarrollador web. Si quieres formar parte de esta comunidad 
               y ser el primero en enterarte de estas cosas puedes suscribirte a mi newsletter, donde
@@ -82,7 +82,7 @@ const About = () => {
             <Heading letterSpacing="tight" mt={8} mb={4} as="h3" size="md">
               Si eres desarrollador junior y quieres progresar
             </Heading>
-            <Text color={secondaryTextColor[colorMode]} my={4}>
+            <Text my={4}>
               Podemos <strong>charlar durante 30'</strong>.
             </Text>
             <Heading letterSpacing="tight" mt={8} mb={4} as="h3" size="md">
@@ -92,7 +92,7 @@ const About = () => {
             <Heading letterSpacing="tight" mt={8} mb={4} as="h2" size="xl">
               Contacto
             </Heading>
-            <Text color={secondaryTextColor[colorMode]} my={4} textStyle="p">
+            <Text my={4} textStyle="p">
               Si tienes una idea o proyecto y quieres que trabajemos juntos, puedes contactar conmigo vía email:<br/>
               <Link href="mailto:hola@lucasbernalte.com" title="Email" isExternal>
                 <IconButton
@@ -130,7 +130,7 @@ const About = () => {
                 </Flex>
               </Link>
             </Heading>
-            <Text color={secondaryTextColor[colorMode]} mb={8}>
+            <Text mb={8}>
               Colaboración con VueJS Madrid para iniciar a desarrolladores en el mundo de VueJS, creando una aplicación desde cero,
               creando componentes contenedores y presentacionales, entendiendo el funcionamiento reactivo de Vue y cómo nos podemos
               beneficiar de este framework al ser progresivo. 
@@ -147,7 +147,7 @@ const About = () => {
                 </Flex>
               </Link>
             </Heading>
-            <Text color={secondaryTextColor[colorMode]} mb={8}>
+            <Text mb={8}>
               Taller práctico para aprender a trabajar con Git, en varias ramas, dentro de un equipo trabajando sobre el mismo
               repositorio. Los asistentes escribían un capítulo de un libro en distinto orden, e incluso corrigiendo lo que iban
               subiendo otros, para al final mergearse todo correctamente en master. 

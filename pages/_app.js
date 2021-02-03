@@ -25,7 +25,7 @@ const GlobalStyle = ({ children }) => {
             color: #fefefe;
           }
           html {
-            min-width: 360px;
+            min-width: 320px;
             scroll-behavior: smooth;
           }
           #__next {
@@ -62,6 +62,7 @@ const App = ({ Component, pageProps }) => {
                 content="biHkMOychciu9cqUw-vineouEgViHqhNYTF8AFh67JA"
                 name="google-site-verification"
               />
+              <script async defer data-domain="lucasbernalte.com" src="https://plausible.io/js/plausible.js"></script>
             </Head>
             <DefaultSeo {...SEO} />
             <Component {...pageProps} />

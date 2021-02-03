@@ -10,8 +10,8 @@ import { getAllPosts } from '../lib/api'
 const Index = ({ allPosts }) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
-    light: 'gray.700',
-    dark: 'gray.400'
+    light: 'gray.900',
+    dark: 'gray.200'
   };
 
   const borderColor = {
@@ -32,7 +32,7 @@ const Index = ({ allPosts }) => {
         spacing={8}
         justifyContent="center"
         alignItems="flex-start"
-        m="0 auto 4rem auto"
+        m="0 auto 2rem auto"
         maxWidth={MAX_WIDTH}
       >
         <div style={{position: 'relative', height: '1px', width: '110%'}}>
@@ -41,7 +41,7 @@ const Index = ({ allPosts }) => {
             top: '-56px',
             left: '-112px',
             right: 0,
-            height: '24rem',
+            height: '300px',
             pointerEvents: 'none',
             background: colorMode === 'light' ? 'url(/static/images/web-bg.png)50% 0 no-repeat' : 'url(/static/images/web-bg-inverted.png)50% 0 no-repeat',
             opacity: .15,
@@ -55,15 +55,15 @@ const Index = ({ allPosts }) => {
           alignItems="flex-start"
           maxWidth={MAX_WIDTH}
         >
-          <Heading style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} letterSpacing="tight" mt="-4rem" mb={2} as="h1" size="2xl">
-            <Image width="200px" mr="-4rem" src="/static/images/hero-me.png"/> Hey, I’m Lucas Bernalte
+          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+            👋 Hey, I’m Lucas Bernalte
           </Heading>
-          <Text mt={16} color={secondaryTextColor[colorMode]} textStyle="p">
+          <Text mt={8} fontSize={20} style={{fontWeight: 300}}>
             Ingeniero y desarrollador Full Stack en JavaScript con experiencia. Trabajo en Electronic Arts como <strong>Frontend Engineer</strong>.
             Mi misión es ayudar a desarrolladores junior a progresar en su carrera, para ello escribo y comparto conocimiento sobre Frontend.
             La tecnología con la que más estoy trabajando es React, así que me verás escribiendo sobre ello con mucha frecuencia!
           </Text>
-          <Text mt={4} color={secondaryTextColor[colorMode]} textStyle="p">
+          <Text mt={4} fontSize={20} style={{fontWeight: 300}}>
             Si ya sabes los conocimientos básicos sobre React y te has preguntado ¿y ahora qué? echa un vistazo a mi blog!
           </Text>
           {/* <Box

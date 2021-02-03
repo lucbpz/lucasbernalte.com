@@ -5,8 +5,8 @@ import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/react';
 const BlogPost = ({title, slug, readingTime, summary}) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
-    light: 'gray.700',
-    dark: 'gray.400'
+    light: 'gray.900',
+    dark: 'gray.200'
   };
 
   return (
@@ -23,7 +23,7 @@ const BlogPost = ({title, slug, readingTime, summary}) => {
               {title}
             </Heading>
             <Text
-              color="gray.500"
+              color="gray.200"
               minWidth="105px"
               textAlign={['left', 'right']}
               mb={[4, 0]}

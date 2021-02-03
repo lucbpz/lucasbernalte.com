@@ -24,8 +24,8 @@ const title = 'Inspiration – Lucas Bernalte';
 const About = () => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
-    light: 'gray.700',
-    dark: 'gray.400'
+    light: 'gray.900',
+    dark: 'gray.200'
   };
 
   return (
@@ -44,7 +44,7 @@ const About = () => {
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
+          m="2rem auto 2rem auto"
           maxWidth={MAX_WIDTH}
         >
           <Flex
@@ -66,8 +66,10 @@ const About = () => {
               El background de la página de inicio es inspiración de <CustomLink href="https://jake.nyc/">jake.nyc</CustomLink>. Me encanta y seguramente haga alguna cosa más con esto!
             </Text>
             <Text color={secondaryTextColor[colorMode]} my={4} textStyle="p">
-              Viendo otros blogs y portfolios como el de <CustomLink href="https://www.taniarascia.com/">Tania Rascia</CustomLink> me di cuenta de que
-              tenía que aumentar el tamaño de fuente.
+              Otros:
+              <Box as="ul" w="full" textStyle="p" pt={2} pl={4} ml={2}>
+                <Box as="li"><CustomLink href="https://www.taniarascia.com/">Tania Rascia</CustomLink></Box>
+              </Box>
             </Text>
           </Flex>
         </Stack>

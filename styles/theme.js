@@ -3,6 +3,53 @@ import { theme as chakraTheme } from '@chakra-ui/react';
 
 const theme = {
   ...chakraTheme,
+  global: {
+    body: {
+      bg: 'red'
+    }
+  },
+  colors: {
+    ...chakraTheme.colors,
+    gray:
+    {
+      50: '#eef1fa',
+      100: '#d1d5e1',
+      200: '#b3b9c9',
+      300: '#959db4',
+      400: '#77819f',
+      500: '#5d6885',
+      600: '#495169',
+      700: '#343a4b',
+      800: '#1e232e',
+      900: '#060c14',
+    },
+    secondary: 
+    {
+      50: '#dff1ff',
+      100: '#b0d3ff',
+      200: '#7fb6ff',
+      300: '#4d98ff',
+      400: '#1f7bfe',
+      500: '#0961e5',
+      600: '#004cb3',
+      700: '#003681',
+      800: '#002050',
+      900: '#000b20',
+    },
+    tertiary: 
+    {
+      50: '#ffe6ea',
+      100: '#f8bdc5',
+      200: '#ed939e',
+      300: '#e46879',
+      400: '#db3e53',
+      500: '#c12439',
+      600: '#971a2d',
+      700: '#6d111f',
+      800: '#430812',
+      900: '#1d0003',
+    }
+  },
   fonts: {
     ...chakraTheme.fonts,
     heading: 'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica',
@@ -16,8 +63,8 @@ const theme = {
   fontSizes: {
     xs: "12px",
     sm: "14px",
-    md: "18px",
-    lg: "20px",
+    md: "16px",
+    lg: "18px",
     xl: "22px",
     "2xl": "24px",
     "3xl": "28px",
@@ -29,6 +76,7 @@ const theme = {
     p: {
       fontSize: ['md', 'lg'],
       fontWeight: 'normal',
+      letterSpacing: 'tight',
     }
   },
   icons: {

@@ -12,6 +12,11 @@ import {
 import {FaSpotify} from 'react-icons/fa';
 import fetcher from '../lib/fetcher';
 
+const textColor = {
+  light: "gray.800",
+  dark: "gray.100",
+};
+
 const NowPlaying = () => {
   const { data } = useQuery('now-playing', () => fetcher('/api/now-playing'));
   const { colorMode } = useColorMode();
@@ -61,7 +66,7 @@ const NowPlaying = () => {
           {data && (data?.title || 'Not Playing')}
         </Link>
         <Text
-          color="gray.500"
+          color={textColor[colorMode]}
           mb={4}
           maxWidth="190px"
           whiteSpace="nowrap"

@@ -9,7 +9,7 @@ const Container = ({ children }) => {
 
   const bgColor = {
     light: 'white',
-    dark: 'gray.900'
+    dark: 'gray.800'
   };
   const primarytextColor = {
     light: 'black',

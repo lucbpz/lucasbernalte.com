@@ -17,13 +17,17 @@ const Subscribe = () => {
   const toast = useToast();
   const { colorMode } = useColorMode();
   const bgColor = {
-    light: 'blue.50',
-    dark: 'blue.900'
+    light: 'secondary.50',
+    dark: 'secondary.900'
   };
   const borderColor = {
-    light: 'blue.200',
-    dark: 'blue.900'
+    light: 'secondary.200',
+    dark: 'secondary.900'
   };
+  const bgInputColor = {
+    light: 'white',
+    dark: 'secondary.900'
+  }
 
   const subscribe = async (e) => {
     e.preventDefault();
@@ -87,11 +91,12 @@ const Subscribe = () => {
       <InputGroup size="md" mt={4}>
         <Input
           aria-label="Email for newsletter"
+          bg={bgInputColor[colorMode]}
           placeholder="john@doe.com"
           ref={inputEl}
           type="email"
         />
-        <InputRightElement width="6.75rem">
+        <InputRightElement width="8rem">
           <Button
             isLoading={loading}
             fontWeight="bold"
