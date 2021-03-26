@@ -6,6 +6,7 @@ import BlogPost from '../components/BlogPost';
 import Subscribe from '../components/Subscribe';
 import {MAX_WIDTH} from '../lib/constants';
 import { getAllPosts } from '../lib/api'
+import { FormattedMessage } from 'react-intl';
 
 const Index = ({ allPosts }) => {
   const { colorMode } = useColorMode();
@@ -59,9 +60,12 @@ const Index = ({ allPosts }) => {
             👋 Hey, I’m Lucas Bernalte
           </Heading>
           <Text mt={8} fontSize={20} style={{fontWeight: 300}}>
-            Ingeniero y desarrollador Full Stack en JavaScript con experiencia. Trabajo en Electronic Arts como <strong>Frontend Engineer</strong>.
-            Mi misión es ayudar a desarrolladores junior a progresar en su carrera, para ello escribo y comparto conocimiento sobre Frontend.
-            La tecnología con la que más estoy trabajando es React, así que me verás escribiendo sobre ello con mucha frecuencia!
+            <FormattedMessage
+              id="intro-1"
+              values={{
+                strong: (chunks) => <strong>{chunks}</strong>,
+              }}
+            />
           </Text>
           <Text mt={4} fontSize={20} style={{fontWeight: 300}}>
             Si ya sabes los conocimientos básicos sobre React y te has preguntado ¿y ahora qué? echa un vistazo a mi blog!
@@ -101,7 +105,7 @@ const Index = ({ allPosts }) => {
 
 export default Index;
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -110,7 +114,7 @@ export async function getStaticProps() {
     'coverImage',
     'summary',
     'content',
-  ])
+  ], locale)
 
   return {
     props: { allPosts },

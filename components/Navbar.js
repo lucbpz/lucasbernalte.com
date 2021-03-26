@@ -20,6 +20,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { MAX_WIDTH } from "../lib/constants";
+import LanguageSwitcher from "./LanguageSwitch";
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -86,11 +87,14 @@ const Hamburger = () => {
             <DrawerFooter>
               <IconButton
                 aria-label="Toggle dark mode"
-                ml={4}
+                mx={4}
                 onClick={toggleColorMode}
               >
                 {colorMode === "dark" ? <FiSun /> : <FiMoon />}
               </IconButton>
+              <Box>
+                <LanguageSwitcher />
+              </Box>
             </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>
@@ -133,7 +137,7 @@ const Navbar = () => {
           </Button>
         </NextLink>
         {showTopNavbar ? (
-          <Box>
+          <Box style={{ display: "flex", flexWrap: "nowrap" }}>
             <NextLink href="/blog" passHref>
               <Button
                 as="a"
@@ -156,11 +160,14 @@ const Navbar = () => {
             </NextLink>
             <IconButton
               aria-label="Toggle dark mode"
-              ml={4}
+              mx={4}
               onClick={toggleColorMode}
             >
               {colorMode === "dark" ? <FiSun /> : <FiMoon />}
             </IconButton>
+            <Box>
+              <LanguageSwitcher />
+            </Box>
           </Box>
         ) : (
           <Hamburger />

@@ -1,0 +1,191 @@
+---
+title: 'Why to use Testing Library over Enzyme'
+date: '2021-02-10T11:35:07.322Z'
+summary: 'An analysis between Enzyme and React Testing Library about how they both render React components and what can the developer do with the output of the rendered components. Algo this article contains some testing best practices.'
+image: '/static/images/enzyme/testing-library-enzyme-en.png'
+translation: por-que-usar-testing-library-en-lugar-de-enzyme.mdx
+---
+
+![Testing Library vs Enzyme](/static/images/enzyme/lab-enzyme.jpg)
+<span>Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">National Cancer Institute</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+# Why to use Testing Library over Enzyme
+
+The testing library created by Kent C. Dodds and maintained by the community built on that, Testing Library (they couldn't have picked up a better name)
+has become one of the top testing libraries used in the JS developer communities, and even though they started with just React compatibility, there are now Testing Libraries for Svelte, Vue, Angular, Cypress, etc.
+Before this library existed, React developers chose Enzyme, built by AirBnB, as their testing library of preference.
+
+In this article, I'm going to explain what do both libraries do and why choosing Testing Library is a better decision and why it will improve your dev stack.
+
+# Enzyme
+
+Enzyme is a testing library utility for React, that renders components and makes the reading of that output easy for the user, having an easy and intuitive API.
+
+
+## How does Enzyme render a component?
+
+- Shallow rendering: used to limit the testing of a component to its own unit - 1 level of depth, without including any other React components in its children.
+
+```jsx
+const MyComponent = () => {
+	return (
+		<div>
+			<h1>Title</h1>
+			<Subcomponent type="info" />
+		</div>
+	)
+};
+
+// the output of shallow(<MyComponent />) does not render Subcomponent
+/*
+<div>
+	<h1>Title</h1>
+	<Subcomponent type="info" />
+</div>
+*/
+```
+
+- Full DOM Rendering: This is the only Enzyme rendering option that actually renders the component, in something that looks like a browser, like JSDOM.
+- Static Rendering API: Generates an HTML output from the React component tree. Useful to analyze the tree structure.
+
+## What can we do with the output and what can we test?
+
+- We can interact with the elements inside our component, interact with props, methods, and state. We can make it update, by telling the component to update.
+
+```jsx
+const wrapper = mount(<SomeComponent />);
+act(() => wrapper.prop('handler')());
+wrapper.update();
+```
+
+- We can set props or state with `setProps` or `setState`.
+
+```jsx
+const wrapper = mount(<Foo name="foo" />);
+expect(wrapper.find('.foo')).to.have.lengthOf(1);
+expect(wrapper.find('.bar')).to.have.lengthOf(0);
+wrapper.setProps({ name: 'bar' });
+expect(wrapper.find('.foo')).to.have.lengthOf(0);
+expect(wrapper.find('.bar')).to.have.lengthOf(1);
+```
+
+- Simulate some events.
+
+```jsx
+wrapper.find('a').simulate('click');
+```
+
+- Unmount the component.
+
+```jsx
+wrapper.unmount();
+```
+
+# Testing Library
+
+Testing Library is a set of testing utilities, simple and powerful, that only allows testing best practices. It serves as a utility to test User Interfaces in a user-centric way.
+
+## How does React Testing Library render a component?
+
+We now talk about *React* Testing Library in order to make a fair comparison with Enzyme. In other frameworks, the rendering would be different than in React.
+React Testing Library uses the same render method we use to render a component in a real application, `ReactDOM.render`.
+
+This makes a component go through the same rendering life-cycle stages as the ones when it is rendered in the real world.
+
+React Testing Library wraps that render and provides you with a `render` function that does it for you and returns a data with certain methods, to query the DOM.
+
+[UNDER THE HOOD: Here you can see where the `render` is supposed to happen inside RTL code](https://github.com/testing-library/react-testing-library/blob/master/src/pure.js#L63)
+
+## What can we test with Testing Library
+
+Testing Library is built on the idea of "Testing like a user" and avoid testing implementations. This means we cannot interact with a component props, or internal state.
+The things we can do in a test with the JSDOM are the same things we do in the browser with the real rendered component in the DOM (well, almost the same).
+This means we can:
+
+- Check that an element exists by querying the document object.
+
+```jsx
+document.querySelector('.component-class');
+```
+
+- Fire events, the same way they are triggered in the DOM when the user interacts with it.
+
+```jsx
+fireEvent.click(screen.getByRole('button'))
+```
+
+- Check that an element exists with the strongly recommended queries, in order to follow best practices within the test and the code.
+We can find them in the response of the previously explained `render` method, or inside the provided `screen` object, an object that contains everything we render with React Testing Library inside a test. 
+We can query the rendered component, or the screen with the same methods, and we can do it synchronously or asynchronously. When querying it the asynchronous way, it just tries to execute it several times, until it reaches an `asyncTimeout`, or a globally set timeout.
+
+```jsx
+render(<MyComponent />);
+screen.getByText('title'); // synchronous. Throws an error if the element does not exist.
+screen.queryByText('title'); // synchronous. Returns null if the element does not exist.
+await screen.findByText('title'); // asynchronous.
+```
+
+- Check if an element just disappeared from the DOM:
+
+```jsx
+await waitForElementToBeRemoved(() => screen.queryByText('the mummy'))
+```
+
+Testing Library docs also tell us which query should we use for any scenario, giving us some recommendations: [https://testing-library.com/docs/queries/about#priority](https://testing-library.com/docs/queries/about#priority)
+
+If we need to debug a test, we can debug it and see the error in the console, and we can also see the DOM tree which RTL paints in the console whenever there is an error. 
+When this tree is too big, it will be difficult to see the complete tree. RTL maintainers also developed an external tool, [Testing Playground](https://testing-playground.com/), which is a User Interface where we can visualize our component (without any styling) and see our whole DOM tree.
+Inside the test we can do this and get an external URL in the console we can navigate to:
+
+```jsx
+screen.logTestingPlaygroundURL();
+```
+
+# Why the React community is migrating to Testing Library
+
+We can observe React Testing Library and Enzyme's "mount" method are almost similar. Why is the React community using Testing Library over Enzyme?
+
+Well, before answering this question, we can ask ourselves another question.
+
+How many users does our React component we want to test have?
+
+99% of the time, our component should have only two users:
+
+- The final user. The person who browses our application and interacts with our component.
+- The developer or maintainer who modifies its code and can potentially reuse this component somewhere else in our app.
+
+When a library like Enzyme adds more rendering options like "shallow" rendering, underneath it is adding mocks to test our component in an isolated environment. Therefore we are creating a third user for our component: the test.
+This means our test will need some more maintenance, as it is now being somehow coupled with its implementation, and we will probably need to change the test whenever the implementation changes.
+Our code is much more maintainable with only two users.
+
+Testing Library does not give a "shallow" rendering option because it is based on a ["Behavior Driven" testing](https://www.giffgaff.io/tech/react-test-driven-development/), and you should not interact any internal implementation.
+This could be seen opinionated, but in reality it is the most effective way of testing User Interfaces. [Avoid testing implementations](https://kentcdodds.com/blog/testing-implementation-details)
+
+> "We try to only expose methods and utilities that encourage you to write tests that closely resemble how your React components are used."
+
+The work the community has done led this library to be the first testing library recommended in the official React docs.
+
+AirBnB also saw its potential and started their migration, having both testing libraries in their stack for now (they say they had over 17000 tests written in Enzyme, impossible to migrate them in a single commit!)
+And they keep making some contributions to Enzyme, but [in March 2020 AirBnB announced they were going to transfer the Enzyme library ownership to the Enzyme community](https://www.infoq.com/news/2020/03/airbnb-drops-ownership-enzyme/)
+
+Some of the top Open Source repositories on GitHub, like Storybook or Gatsby already use React Testing Library, and others like Material UI have been migrating their tests since April 2020.
+
+React currently is on v17, and Enzyme, which is based on the React implementation, needs an adapter to be able to render and work with the ongoing React version. They released an adapter for React v16 and there is not an official adapter for v17 yet.
+[There is an unofficial adapter you need to install if you want to make both work together.](https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17)
+
+
+# My recommendation
+
+Each library has been written in their own context and we should understand this context, why they were created and which problem they were trying to solve.
+The Frontend community is now into "Testing behaviors, not implementations" and it is a great way of adding value to our tests. 
+Testing Library is the one you should choose if this is going to be your approach, because **it was made for this purpose**.
+By using Testing Library you won't have a way of internally setting a state in a component, which is not recommended, and you might end up creating tests without any value (almost testing the React implementation itself).
+Their API is really intuitive and their [docs](https://testing-library.com/docs/react-testing-library/intro/) are also great, the community is doing a great job, and now there are more Testing Libraries - one for React, Vue, Angular, etc. 
+And there are also some other utilities they extract to their own libraries, like User Event - a library that simulates events in the DOM but emulating a user behavior.
+
+---
+
+If you find this article interesting, you can help me by sharing this and making it visible, on Twitter or any other social platform. Also, you can follow me on Twitter if you want to keep up-to-date with this type of content.
+Feel free to create a Pull Request if you see any typo or error, and help me [improve this site](https://github.com/lucbpz/lucasbernalte.com)!
+
+🙋‍♂️ Happy Testing!

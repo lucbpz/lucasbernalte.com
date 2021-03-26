@@ -18,11 +18,11 @@ const Subscribe = () => {
   const { colorMode } = useColorMode();
   const bgColor = {
     light: 'secondary.50',
-    dark: 'secondary.900'
+    dark: 'gray.600'
   };
   const borderColor = {
     light: 'secondary.200',
-    dark: 'secondary.900'
+    dark: 'gray.600'
   };
   const bgInputColor = {
     light: 'white',
@@ -71,12 +71,13 @@ const Subscribe = () => {
   return (
     <Box
       border="1px solid"
-      borderColor={borderColor[colorMode]}
+      borderColor={bgColor[colorMode]}
       bg={bgColor[colorMode]}
-      borderRadius={4}
+      borderRadius={10}
       padding={6}
       my={4}
       w="100%"
+      boxShadow="xl"
     >
       <Heading as="h5" size="lg" mb={2}>
         Suscríbete a mi Newsletter

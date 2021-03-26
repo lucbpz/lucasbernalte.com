@@ -6,7 +6,7 @@ import { ColorModeScript } from "@chakra-ui/react"
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
         <Head>
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />

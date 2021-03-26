@@ -2,7 +2,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/react';
 
-const BlogPost = ({title, slug, readingTime, summary}) => {
+const BlogPost = ({title, slug, readingTime, summary, locale}) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
     light: 'gray.900',

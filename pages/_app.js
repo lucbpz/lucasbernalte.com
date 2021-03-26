@@ -12,6 +12,14 @@ import { prismLightTheme, prismDarkTheme } from '../styles/prism';
 import MDXComponents from '../components/MDXComponents';
 import SEO from '../next-seo.config';
 
+import { IntlProvider } from 'react-intl';
+import { useRouter } from "next/router"
+
+const languages = {
+  en: require('../locale/en.json'),
+  es: require('../locale/es.json')
+};
+
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
 
@@ -42,6 +50,10 @@ const GlobalStyle = ({ children }) => {
 };
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter()
+  const { locale, defaultLocale } = router;
+  const messages = languages[locale];
+
   return (
     <ChakraProvider theme={theme}>
       <MDXProvider components={MDXComponents}>
@@ -65,7 +77,9 @@ const App = ({ Component, pageProps }) => {
               <script async defer data-domain="lucasbernalte.com" src="https://plausible.io/js/plausible.js"></script>
             </Head>
             <DefaultSeo {...SEO} />
-            <Component {...pageProps} />
+            <IntlProvider messages={messages} locale={locale} defaultLocale={defaultLocale}>
+              <Component {...pageProps} />
+            </IntlProvider>
           </GlobalStyle>
       </MDXProvider>
     </ChakraProvider>

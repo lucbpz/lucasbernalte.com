@@ -19,7 +19,7 @@ import Subscribe from '../../components/Subscribe';
 import BlogSeo from '../../components/BlogSeo';
 import {MAX_WIDTH} from '../../lib/constants';
 
-export default function BlogLayout({ mdxSource, frontMatter }) {
+export default function BlogLayout({ mdxSource, frontMatter, locale }) {
     const content = hydrate(mdxSource, { components: MDXComponents })
 
   const { colorMode } = useColorMode();
@@ -30,7 +30,7 @@ export default function BlogLayout({ mdxSource, frontMatter }) {
 
   return (
     <Container>
-      <BlogSeo url={`https://lucasbernalte.com/blog/${frontMatter.slug}`} {...frontMatter} />
+      <BlogSeo url={`https://lucasbernalte.com/blog/${frontMatter.slug}`} {...frontMatter} locale={locale}/>
       <Stack
         as="article"
         spacing={8}
@@ -135,10 +135,11 @@ export default function BlogLayout({ mdxSource, frontMatter }) {
 //     }
 //   }
 export async function getStaticPaths() {
-    const posts = await getFiles('blog');
+    const postsEn = await getFiles(`blog/en`);
+    const postsEs = await getFiles(`blog/es`);
   
     return {
-      paths: posts.map((p) => ({
+      paths: [...postsEn, ...postsEs].map((p) => ({
         params: {
           slug: p.replace(/\.mdx/, '')
         }
@@ -147,8 +148,8 @@ export async function getStaticPaths() {
     };
   }
   
-  export async function getStaticProps({ params }) {
-    const post = await getFileBySlug('blog', params.slug);
+  export async function getStaticProps({ params, locale }) {
+    const post = await getFileBySlug(`blog/${locale}`, params.slug);
   
     return { props: post };
   }

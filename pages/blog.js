@@ -76,7 +76,7 @@ const Blog = ({allPosts}) => {
 
 export default Blog;
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
     const allPosts = getAllPosts([
       'title',
       'date',
@@ -85,7 +85,7 @@ export async function getStaticProps() {
       'coverImage',
       'summary',
       'content',
-    ])
+    ], locale)
   
     return {
       props: { allPosts },

@@ -1,11 +1,12 @@
-import React from 'react';
-import { NextSeo, ArticleJsonLd } from 'next-seo';
+import React from "react";
+import { NextSeo, ArticleJsonLd } from "next-seo";
+import Head from "next/head";
 
-const BlogSeo = ({ title, summary, date, url, image }) => {
+const BlogSeo = ({ title, summary, date, url, image, slug, locale }) => {
   const publishedTime = new Date(date).toISOString();
   const featuredImage = {
     url: `https://lucasbernalte.com${image}`,
-    alt: title
+    alt: title,
   };
 
   return (
@@ -15,16 +16,30 @@ const BlogSeo = ({ title, summary, date, url, image }) => {
         description={summary}
         canonical={url}
         openGraph={{
-          type: 'article',
+          type: "article",
           article: {
             publishedTime,
           },
           url,
           title,
           description: summary,
-          images: [featuredImage]
+          images: [featuredImage],
         }}
       />
+      <Head>
+        <link
+          rel="alternate"
+          hrefLang={locale}
+          href={`${'http://lucasbernalte.com'}/${locale}/blog/${post?.slug}`}
+        />
+        {post?.hreflang?.lang && (
+          <link
+            rel="alternate"
+            hrefLang={post?.hreflang?.lang}
+            href={post?.hreflang?.link}
+          />
+        )}
+      </Head>
       <ArticleJsonLd
         authorName="Lucas Bernalte"
         dateModified={publishedTime}
