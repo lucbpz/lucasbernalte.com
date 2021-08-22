@@ -6,21 +6,33 @@ export default async (req, res) => {
     }
   
     try {
-      const API_KEY = process.env.BUTTONDOWN_API_KEY;
-      const response = await fetch(
-        `https://api.buttondown.email/v1/subscribers`,
-        {
-          body: JSON.stringify({
-            email,
-            tags: ['lucasbernalte.com']
-          }),
-          headers: {
-            Authorization: `Token ${API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          method: 'POST'
-        }
-      );
+      // const API_KEY = process.env.BUTTONDOWN_API_KEY;
+      // const response = await fetch(
+      //   `https://api.buttondown.email/v1/subscribers`,
+      //   {
+      //     body: JSON.stringify({
+      //       email,
+      //       tags: ['lucasbernalte.com']
+      //     }),
+      //     headers: {
+      //       Authorization: `Token ${API_KEY}`,
+      //       'Content-Type': 'application/json'
+      //     },
+      //     method: 'POST'
+      //   }
+      // );
+      const API_KEY = process.env.REVUE_API_KEY;
+      const response = await fetch('https://www.getrevue.co/api/v2/subscribers', {
+        body: JSON.stringify({
+          email,
+          double_opt_in: false,
+        }),
+        headers: {
+          Authorization: `Token ${API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+      });
   
       if (response.status >= 400) {
         const text = await response.text();
