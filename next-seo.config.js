@@ -1,6 +1,6 @@
-const title = 'Lucas Bernalte – Frontend, React developer, JavaScript.';
+const title = 'Lucas Bernalte – Frontend, React, JavaScript FullStack Developer.';
 const description =
-  'Front-end developer, JavaScript y cursos sobre desarrollo web';
+  'Creando mi Digital Garden, hablando sobre JavaScript, React y dando mi visión acerca del mundo de Frontend y desarrollo web.';
 
 const SEO = {
   title,
@@ -14,10 +14,10 @@ const SEO = {
     description,
     images: [
       {
-        url: 'https://lucasbernalte.com/static/favicons/favicon.ico',
+        url: 'https://lucasbernalte.com/static/thumbnails/lucas-bernalte.png',
         alt: title,
-        width: 32,
-        height: 32
+        width: 1200,
+        height: 630
       }
     ]
   },
