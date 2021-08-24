@@ -25,7 +25,6 @@ export default async (req, res) => {
       const response = await fetch('https://www.getrevue.co/api/v2/subscribers', {
         body: JSON.stringify({
           email,
-          double_opt_in: false,
         }),
         headers: {
           Authorization: `Token ${API_KEY}`,
