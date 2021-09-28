@@ -63,7 +63,7 @@ export default function BlogLayout({ mdxSource, frontMatter }) {
                 size="xs"
                 backgroundColor="grey"
                 name="Lucas Bernalte"
-                src="/static/favicons/barba.png"
+                src="/static/favicons/android-chrome-192x192.png"
                 mr={2}
               />
               <Text fontSize="sm" color={textColor[colorMode]}>

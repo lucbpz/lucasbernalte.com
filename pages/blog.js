@@ -50,7 +50,7 @@ const Blog = ({allPosts}) => {
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
-            maxWidth={MAX_WIDTH}
+            // maxWidth={MAX_WIDTH}
           >
             <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
               Blog
@@ -60,7 +60,7 @@ const Blog = ({allPosts}) => {
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
-            maxWidth="700px"
+            // maxWidth="700px"
             mt={8}
           >
             {!allPosts.length && 'No posts found.'}
