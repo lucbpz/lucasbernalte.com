@@ -3,8 +3,11 @@ import {
   Heading,
   InputGroup,
   Box,
+  Flex,
+  Image,
   Input,
   InputRightElement,
+  InputLeftAddon,
   Button,
   Text,
   useToast,
@@ -14,19 +17,20 @@ import {
 const Subscribe = () => {
   const [loading, setLoading] = useState(false);
   const inputEl = useRef(null);
+  const nameInputEl = useRef(null);
   const toast = useToast();
   const { colorMode } = useColorMode();
   const bgColor = {
-    light: 'secondary.50',
-    dark: 'secondary.900'
+    light: 'blue.100',
+    dark: 'blue.800'
   };
   const borderColor = {
-    light: 'secondary.200',
-    dark: 'secondary.900'
+    light: 'blue.200',
+    dark: 'blue.800'
   };
   const bgInputColor = {
     light: 'white',
-    dark: 'secondary.900'
+    dark: 'blue.800'
   }
 
   const subscribe = async (e) => {
@@ -35,7 +39,8 @@ const Subscribe = () => {
 
     const res = await fetch('/api/subscribe', {
       body: JSON.stringify({
-        email: inputEl.current.value
+        email: inputEl.current.value,
+        first_name: nameInputEl.current.value,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -59,9 +64,10 @@ const Subscribe = () => {
     }
 
     inputEl.current.value = '';
+    nameInputEl.current.value = '';
     toast({
       title: 'Success!',
-      description: 'You are now subscribed.',
+      description: 'Enhorabuena! Te acabas de suscribir.',
       status: 'success',
       duration: 3000,
       isClosable: true
@@ -73,41 +79,59 @@ const Subscribe = () => {
       border="1px solid"
       borderColor={borderColor[colorMode]}
       bg={bgColor[colorMode]}
-      borderRadius={4}
-      padding={6}
+      borderRadius={32}
+      padding={12}
       my={4}
       w="100%"
     >
-      <Heading as="h5" size="lg" mb={2}>
-        Suscríbete a mi Newsletter
-      </Heading>
+      <Flex align="center" justify="center" flexDirection="column">
+        <Heading as="h5" size="lg" mb={2}>
+          Suscríbete a mi Newsletter Manteniendo Código
+        </Heading>
+        <Box w={{ base: "50%", sm: "40%", md: "20%" }} my={{ base: 4, md: 4 }}>
+          <Image src="/static/images/newsletter/art.png" size="100%" rounded="1rem" />
+        </Box>
+      </Flex>
       <Text>
-        Recibe información sobre artículos sobre Frontend, el mundo del software, katas del mundo real en JS y puede que algo extra de música o desarrollo personal. 
+        Recibe emails sobre cómo hacer mejor código para mantener nuestro software sin sufrir, cómo mejorar en tu carrera profesional como Frontend, y cómo influye nuestra salud en todo esto. 
       </Text>
       <br/>
       <Text>
         Pero prometo no hacerlo demasiado frecuente para no llenarte la bandeja de entrada. 💌
       </Text>
       <InputGroup size="md" mt={4}>
+        <InputLeftAddon children="Name" />
+        <Input
+          aria-label="Name for newsletter"
+          bg={bgInputColor[colorMode]}
+          placeholder="Fulanito"
+          ref={nameInputEl}
+          type="text"
+
+        />
+        {/* <InputRightElement width="12rem" mr={-8}> */}
+        {/* </InputRightElement> */}
+      </InputGroup>
+      <InputGroup size="md" my={4}>
+        <InputLeftAddon children="Email" />
         <Input
           aria-label="Email for newsletter"
           bg={bgInputColor[colorMode]}
-          placeholder="john@doe.com"
+          placeholder="hola@fulanito.com"
           ref={inputEl}
           type="email"
+
         />
-        <InputRightElement width="8rem">
-          <Button
-            isLoading={loading}
-            fontWeight="bold"
-            h="1.75rem"
-            size="sm"
-            onClick={subscribe}
-          >
-            Subscribe
-          </Button>
-        </InputRightElement>
+        {/* <InputRightElement width="12rem" mr={-8}> */}
+        {/* </InputRightElement> */}
       </InputGroup>
+      <Button
+        isLoading={loading}
+        colorScheme="purple"
+        onClick={subscribe}
+      >
+        Subscribe
+      </Button>
     </Box>
   );
 };

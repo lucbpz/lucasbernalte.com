@@ -41,6 +41,12 @@ const GlobalStyle = ({ children }) => {
   );
 };
 
+// import Sora font-family
+import '@fontsource/sora/200.css'
+import '@fontsource/sora/400.css'
+import '@fontsource/sora/600.css'
+import '@fontsource/sora/800.css'
+
 const App = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>

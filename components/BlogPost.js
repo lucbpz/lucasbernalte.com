@@ -5,8 +5,12 @@ import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/react';
 const BlogPost = ({title, slug, readingTime, summary}) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
-    light: 'gray.900',
-    dark: 'gray.200'
+    light: 'gray.500',
+    dark: 'gray.400'
+  };
+  const descriptionTextColor = {
+    light: 'gray.600',
+    dark: 'gray.300'
   };
 
   return (
@@ -17,22 +21,22 @@ const BlogPost = ({title, slug, readingTime, summary}) => {
             width="100%"
             align="flex-start"
             justifyContent="space-between"
-            flexDirection={['column', 'row']}
+            direction={{ base: "column", md: "row" }}
+
           >
             <Heading size="md" as="h3" mb={2} fontWeight="medium">
               {title}
             </Heading>
             <Text
-              color="gray.200"
-              minWidth="105px"
-              textAlign={['left', 'right']}
-              mb={[4, 0]}
+              color={secondaryTextColor[colorMode]}
+              mb={{base: 4, md: 0}}
               textStyle="p"
+              fontSize="md"
             >
               {`${readingTime.text}`}
             </Text>
           </Flex>
-          <Text color={secondaryTextColor[colorMode]} textStyle="p">{summary}</Text>
+          <Text color={descriptionTextColor[colorMode]} textStyle="p" fontSize="md">{summary}</Text>
         </Box>
       </Link>
     </NextLink>

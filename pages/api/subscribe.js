@@ -1,5 +1,5 @@
 export default async (req, res) => {
-    const { email } = req.body;
+    const { email, first_name } = req.body;
   
     if (!email) {
       return res.status(400).json({ error: 'Email is required' });
@@ -25,6 +25,7 @@ export default async (req, res) => {
       const response = await fetch('https://www.getrevue.co/api/v2/subscribers', {
         body: JSON.stringify({
           email,
+          first_name,
         }),
         headers: {
           Authorization: `Token ${API_KEY}`,
@@ -32,10 +33,11 @@ export default async (req, res) => {
         },
         method: 'POST',
       });
+
   
       if (response.status >= 400) {
         const text = await response.text();
-  
+        
         if (text.includes('already subscribed')) {
           return res.status(400).json({
             error: `Ya estás suscrito a mi newsletter.`

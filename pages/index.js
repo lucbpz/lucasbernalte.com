@@ -6,6 +6,7 @@ import BlogPost from '../components/BlogPost';
 import Subscribe from '../components/Subscribe';
 import {MAX_WIDTH} from '../lib/constants';
 import { getAllPosts } from '../lib/api'
+import Hero from '../components/Hero';
 
 const Index = ({ allPosts }) => {
   const { colorMode } = useColorMode();
@@ -55,7 +56,7 @@ const Index = ({ allPosts }) => {
           alignItems="flex-start"
           maxWidth={MAX_WIDTH}
         >
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+          {/* <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
             👋 Hey, I’m Lucas Bernalte
           </Heading>
           <Text mt={8} fontSize={20} style={{fontWeight: 300}}>
@@ -65,7 +66,8 @@ const Index = ({ allPosts }) => {
           </Text>
           <Text mt={4} fontSize={20} style={{fontWeight: 300}}>
             Si ya sabes los conocimientos básicos sobre React y te has preguntado ¿y ahora qué? echa un vistazo a mi blog!
-          </Text>
+          </Text> */}
+          <Hero />
           {/* <Box
             border="1px solid"
             borderColor={borderColor[colorMode]}
