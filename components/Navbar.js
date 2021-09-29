@@ -27,6 +27,14 @@ const StickyNav = styled(Flex)`
   top: 0;
 `;
 
+const links = [
+  {name: 'Newsletter', link: '/newsletter'},
+  {name: '📝 Blog', link: '/blog'},
+  {name: '👨‍💻 Sobre mí', link: '/about'},
+];
+
+const Item = ({link}) => (<NextLink href={link.link} passHref><Button as="a" variant="ghost" p={[1, 4]} style={{fontWeight: 600}}>{link.name}</Button></NextLink>);
+
 const Hamburger = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -60,26 +68,7 @@ const Hamburger = () => {
                     🏡 Home
                   </Button>
                 </NextLink>
-                <NextLink href="/blog" passHref>
-                  <Button
-                    as="a"
-                    variant="ghost"
-                    p={[1, 4]}
-                    style={{ fontWeight: 600 }}
-                  >
-                    📝 Blog
-                  </Button>
-                </NextLink>
-                <NextLink href="/about" passHref>
-                  <Button
-                    as="a"
-                    variant="ghost"
-                    p={[1, 4]}
-                    style={{ fontWeight: 600 }}
-                  >
-                    👨‍💻 Sobre mí
-                  </Button>
-                </NextLink>
+                {links.map(link => <Item key={link.link} link={link} />)}
               </Box>
             </DrawerBody>
 
@@ -101,7 +90,7 @@ const Hamburger = () => {
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const showTopNavbar = useBreakpointValue({ base: false, sm: true });
+  const showTopNavbar = useBreakpointValue({ base: false, sm: false, md: true });
 
   const navBgColor = {
     light: "white",
@@ -134,26 +123,7 @@ const Navbar = () => {
         </NextLink>
         {showTopNavbar ? (
           <Box>
-            <NextLink href="/blog" passHref>
-              <Button
-                as="a"
-                variant="ghost"
-                p={[1, 4]}
-                style={{ fontWeight: 600 }}
-              >
-                📝 Blog
-              </Button>
-            </NextLink>
-            <NextLink href="/about" passHref>
-              <Button
-                as="a"
-                variant="ghost"
-                p={[1, 4]}
-                style={{ fontWeight: 600 }}
-              >
-                👨‍💻 Sobre mí
-              </Button>
-            </NextLink>
+            {links.map(link => <Item link={link} />)}
             <IconButton
               aria-label="Toggle dark mode"
               ml={4}

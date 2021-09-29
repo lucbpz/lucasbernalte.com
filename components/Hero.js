@@ -24,7 +24,7 @@ export default function Hero({}) {
       </Box>
       <Stack
         spacing={4}
-        w={{ base: "80%", md: "60%" }}
+        w={{ base: "100%", md: "60%" }}
         align={["center", "center", "flex-start", "flex-start"]}
       >
         {/* <Heading
