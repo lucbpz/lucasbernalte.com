@@ -123,7 +123,7 @@ const Navbar = () => {
         </NextLink>
         {showTopNavbar ? (
           <Box>
-            {links.map(link => <Item link={link} />)}
+            {links.map(link => <Item key={link} link={link} />)}
             <IconButton
               aria-label="Toggle dark mode"
               ml={4}
