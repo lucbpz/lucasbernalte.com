@@ -32,7 +32,7 @@ const Footer = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Flex align="center" pt="2rem" direction="column" flexShrink={0} bg={footerColor[colorMode]}>
+    <Flex align="center" pt="2rem" direction="column" bg={footerColor[colorMode]}>
       <NowPlaying />
       <div>
         <Link
