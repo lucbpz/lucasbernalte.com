@@ -23,13 +23,14 @@ const Container = ({ children }) => {
         as="main"
         justifyContent="center"
         flexDirection="column"
+        flex="1 0 auto"
         bg={bgColor[colorMode]}
         color={primarytextColor[colorMode]}
         px={8}
       >
         {children}
-        <Footer />
       </Flex>
+      <Footer />
     </>
   );
 };
