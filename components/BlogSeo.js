@@ -1,28 +1,46 @@
-import React from 'react';
-import { NextSeo, ArticleJsonLd } from 'next-seo';
+import React from "react";
+import { NextSeo, ArticleJsonLd } from "next-seo";
+import { parseISO, format } from "date-fns";
 
-const BlogSeo = ({ title, summary, date, url, image }) => {
+const BlogSeo = ({ title, summary, date, url, image, readingTime }) => {
+  const microLinkCardParams = {
+    bgImage: "https://lucasbernalte.com/static/thumbnails/bg.png",
+    bgOverlay: "rgba(255,255,255,0)",
+    color: "#fff",
+    domain: "lucasbernalte.com",
+    logo: "https://lucasbernalte.com/static/favicons/lucas-circle.png",
+    subtitle: `${format(parseISO(date), "MMMM dd, yyyy")} — ${
+      readingTime.text
+    }`,
+    title,
+  };
+
+  const searchParams = new URLSearchParams(microLinkCardParams);
+
   const publishedTime = new Date(date).toISOString();
+
   const featuredImage = {
-    url: `https://lucasbernalte.com${image}`,
-    alt: title
+    url: `https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dsmhutch%26${encodeURIComponent(
+      searchParams.toString()
+    )}`,
+    alt: title,
   };
 
   return (
     <>
       <NextSeo
-        title={`${title} – Lucas Bernalte`}
+        title={`${title} – Lucas Bernalte's blog`}
         description={summary}
         canonical={url}
         openGraph={{
-          type: 'article',
+          type: "article",
           article: {
             publishedTime,
           },
           url,
           title,
           description: summary,
-          images: [featuredImage]
+          images: [featuredImage],
         }}
       />
       <ArticleJsonLd
