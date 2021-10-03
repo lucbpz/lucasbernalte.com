@@ -1,16 +1,26 @@
 const withMDX = require("@next/mdx")({
-    extension: /\.mdx?$/,
-  })
+  extension: /\.mdx?$/,
+});
 
 module.exports = withMDX({
-    pageExtensions: ["js", "jsx", "md", "mdx"],
-    webpack: (config, { isServer }) => {
-      // Fixes npm packages (mdx) that depend on `fs` module
-      if (!isServer) {
-        config.node = {
-          fs: "empty",
-        }
-      }
-      return config
-    },
-})
+  pageExtensions: ["js", "jsx", "md", "mdx"],
+  webpack: (config, { isServer, dev }) => {
+    // Fixes npm packages (mdx) that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
+
+    if (!dev && isServer) {
+      const originalEntry = config.entry;
+      config.entry = async () => {
+        const entries = { ...(await originalEntry()) };
+        entries["scripts/generate-rss.js"] = "./scripts/generate-rss.js";
+        return entries;
+      };
+    }
+
+    return config;
+  },
+});

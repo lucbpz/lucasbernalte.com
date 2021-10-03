@@ -1599,45 +1599,6 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@hypertheme-editor/chakra-ui-colors@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@hypertheme-editor/chakra-ui-colors/-/chakra-ui-colors-0.1.2.tgz#64372d90332c0d9000c5fad1ba65d47a4968e50b"
-  integrity sha512-+1KLyOZgqyioncb2qfzRZbPqyEf7iSHZ8fj45v6M1wumPkqW08/D1n787VakuDD80wrMIM4kBak78wXxdr3WcA==
-  dependencies:
-    colord "^2.1.0"
-    react-colorful "^5.2.3"
-
-"@hypertheme-editor/chakra-ui-core@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@hypertheme-editor/chakra-ui-core/-/chakra-ui-core-0.1.2.tgz#5b957b1371d0f1a581bd2667b95f8b7eea35a3c7"
-  integrity sha512-Mov+NrQ8zmdmtJ8Xx9vq/3pZRgXnAvXuG3rdeN9H7bQ4fZZ/qY+n+NQZL6BP8t2ktsYQqWLh5Yni7BYpVRkOAQ==
-  dependencies:
-    "@hypertheme-editor/chakra-ui-theme" "^0.1.2"
-    react-google-font-loader "^1.1.0"
-
-"@hypertheme-editor/chakra-ui-font-sizes@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@hypertheme-editor/chakra-ui-font-sizes/-/chakra-ui-font-sizes-0.1.2.tgz#a7c263909d1085a69eafd4b5d46498114140e8c4"
-  integrity sha512-EvWNWRXSCqx6vTQ1E7ov6CtqViIVbv/fLvO+Qm8jdnmaNi/c/kgaQRgtXoCBdQ9TFDTPPrB0DLOJldYAJ4hqog==
-
-"@hypertheme-editor/chakra-ui-theme@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@hypertheme-editor/chakra-ui-theme/-/chakra-ui-theme-0.1.2.tgz#7e1ea94c8246cf821afc56a83edc52988e6b09fa"
-  integrity sha512-Thf+mI7HMVyl/dbgMOHxtIDwtVeShub7a6FybSeDiMbWrdPYXLxt8gY019u2pPjDV3zV4d6Tweder8u3LgjnUA==
-
-"@hypertheme-editor/chakra-ui@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@hypertheme-editor/chakra-ui/-/chakra-ui-0.1.2.tgz#5279e3d8e93bb6904c6c5b57e34b2dcb3db179bb"
-  integrity sha512-8FJh1XKFnN4YYXz/xKOrRqUAKJ1EZVABNCJw2lQJZVSva2+Vlo2XzB5CpZmk9NPNti8n9EZ3DZj7S56vcHvL4w==
-  dependencies:
-    "@hypertheme-editor/chakra-ui-colors" "^0.1.2"
-    "@hypertheme-editor/chakra-ui-core" "^0.1.2"
-    "@hypertheme-editor/chakra-ui-font-sizes" "^0.1.2"
-    immer "^9.0.6"
-    react-icons "^4.2.0"
-    recoil "^0.4.1"
-    use-debouncy "^4.2.0"
-
 "@mdx-js/loader@^1.6.19", "@mdx-js/loader@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.6.22.tgz#d9e8fe7f8185ff13c9c8639c048b123e30d322c4"
@@ -2740,11 +2701,6 @@ color@^3.1.2:
     color-convert "^1.9.1"
     color-string "^1.5.4"
 
-colord@^2.1.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/colord/-/colord-2.8.0.tgz#64fb7aa03de7652b5a39eee50271a104c2783b12"
-  integrity sha512-kNkVV4KFta3TYQv0bzs4xNwLaeag261pxgzGQSh4cQ1rEhYjcTJfFRP0SDlbhLONg0eSoLzrDd79PosjbltufA==
-
 colorette@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
@@ -3515,6 +3471,13 @@ fast-json-stable-stringify@^2.0.0:
   resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
   integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
 
+feed@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/feed/-/feed-4.2.2.tgz#865783ef6ed12579e2c44bbef3c9113bc4956a7e"
+  integrity sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==
+  dependencies:
+    xml-js "^1.6.11"
+
 figgy-pudding@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
@@ -3800,11 +3763,6 @@ gray-matter@4.0.2, gray-matter@^4.0.2:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
-hamt_plus@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/hamt_plus/-/hamt_plus-1.0.2.tgz#e21c252968c7e33b20f6a1b094cd85787a265601"
-  integrity sha1-4hwlKWjH4zsg9qGwlM2FeHomVgE=
-
 has-flag@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
@@ -4082,11 +4040,6 @@ iferr@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
-
-immer@^9.0.6:
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.6.tgz#7a96bf2674d06c8143e327cbf73539388ddf1a73"
-  integrity sha512-G95ivKpy+EvVAnAab4fVa4YGYn24J1SpEktnJX7JJ45Bd7xqME/SCplFzYFmTbrkwZbQ4xJK1xMTUYBkN6pWsQ==
 
 import-fresh@^3.1.0:
   version "3.2.2"
@@ -5652,11 +5605,6 @@ react-clientside-effect@^1.2.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-colorful@^5.2.3:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.4.0.tgz#e05e602469f9768234f29c1bad9ec1f4e86145a2"
-  integrity sha512-k7QJXuQGWevr/V8hoMJ1wBW9i2CVhBdDXpBf3jy/AAtzVyYtsFqEAT+y+NOGiSG1cmnGTreqm5EFLXlVaKbPLQ==
-
 react-dom@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
@@ -5683,22 +5631,10 @@ react-focus-lock@2.4.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-google-font-loader@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-google-font-loader/-/react-google-font-loader-1.1.0.tgz#9c9ae97aae3d2177e922c9bf4ab6312b903abc79"
-  integrity sha512-mnPYxBdhYEldTtREYPKllbmMvCGkTbpdmNjR6iTM3eTNWcg17OrfXjq9HRDZe+1+mhnUnI/AOcpvG0LIQPcLIw==
-  dependencies:
-    prop-types "^15.6.2"
-
 react-icons@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.1.0.tgz#9ca9bcbf2e3aee8e86e378bb9d465842947bbfc3"
   integrity sha512-FCXBg1JbbR0vWALXIxmFAfozHdVIJmmwCD81Jk0EKOt7Ax4AdBNcaRkWhR0NaKy9ugJgoY3fFvo0PHpte55pXg==
-
-react-icons@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
-  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
 
 react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -5795,13 +5731,6 @@ reading-time@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.2.1.tgz#c5533dca26fef91928a392e147ee51b64d163cba"
   integrity sha512-a27kU9sCJzx4JklmKFMXgMoCWlhBi75DFTbU7+M3rjh5SXRWyacYt02il3muYaA+SUQ7tg5gMQn7GC8zOxTt/g==
-
-recoil@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.4.1.tgz#1cb2171bc98d41361507131a059d7c3525d8c4fe"
-  integrity sha512-vp6KPwlHOjJ4bJofmdDchmgI9ilMTCoUisK8/WYLl8dThH7e7KmtZttiLgvDb2Em99dUfTEsk8vT8L1nUMgqXQ==
-  dependencies:
-    hamt_plus "1.0.2"
 
 refractor@^2.3.0:
   version "2.10.1"
@@ -6121,6 +6050,11 @@ sass-loader@10.0.5:
     neo-async "^2.6.2"
     schema-utils "^3.0.0"
     semver "^7.3.2"
+
+sax@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
 scheduler@^0.20.1:
   version "0.20.1"
@@ -7083,11 +7017,6 @@ use-callback-ref@^1.2.1, use-callback-ref@^1.2.3:
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.4.tgz#d86d1577bfd0b955b6e04aaf5971025f406bea3c"
   integrity sha512-rXpsyvOnqdScyied4Uglsp14qzag1JIemLeTWGKbwpotWht57hbP78aNT+Q4wdFKQfQibbUX4fb6Qb4y11aVOQ==
 
-use-debouncy@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/use-debouncy/-/use-debouncy-4.2.0.tgz#d85a593a9ec7fd1310e79246132389f04bcc5e3a"
-  integrity sha512-v8X/yyi+IDiBiJ1pVNJBluxlhN3s2jsj6X7oeHWwMUliYfiPhbkUKoWefr8tG0/a1o9+J2klv+lHsjGz4U/C8A==
-
 use-sidecar@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/use-sidecar/-/use-sidecar-1.0.3.tgz#17a4e567d4830c0c0ee100040e85a7fe68611e0f"
@@ -7274,6 +7203,13 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+
+xml-js@^1.6.11:
+  version "1.6.11"
+  resolved "https://registry.yarnpkg.com/xml-js/-/xml-js-1.6.11.tgz#927d2f6947f7f1c19a316dd8eea3614e8b18f8e9"
+  integrity sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==
+  dependencies:
+    sax "^1.2.4"
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"

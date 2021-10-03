@@ -32,3 +32,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# rss
+/public/feed.atom
+/public/feed.json
+/public/feed.xml
