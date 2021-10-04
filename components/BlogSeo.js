@@ -14,15 +14,18 @@ const BlogSeo = ({ title, summary, date, url, image, readingTime }) => {
     }`,
     title,
   };
-
   const searchParams = new URLSearchParams(microLinkCardParams);
+
+  const api =
+    "https://microlink.vercel.app/?adblock=false&waitForTimeout=1500&meta=false&screenshot&element=%23screenshot&embed=screenshot.url&url=";
+  const cardUrl = `https://cards.microlink.io/?preset=smhutch%26${encodeURIComponent(
+    searchParams.toString()
+  )}`;
 
   const publishedTime = new Date(date).toISOString();
 
   const featuredImage = {
-    url: `https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dsmhutch%26${encodeURIComponent(
-      searchParams.toString()
-    )}`,
+    url: `${api}${cardUrl}`,
     alt: title,
   };
 
