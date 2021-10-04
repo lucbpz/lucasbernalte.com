@@ -11,8 +11,9 @@ import { getAllPosts } from "../lib/api";
     id: "https://lucasbernalte.com",
     link: "https://lucasbernalte.com",
     feedLinks: {
+      rss2: "https://lucasbernalte.com/feed.xml",
       json: "https://lucasbernalte.com/feed.json",
-      atom: "https://lucasbernalte.com/feed.atom",
+      atom: "https://lucasbernalte.com/atom.xml",
     },
     author: {
       name: "Lucas Bernalte",
@@ -35,5 +36,5 @@ import { getAllPosts } from "../lib/api";
 
   fs.writeFileSync("./public/feed.xml", feed.rss2());
   fs.writeFileSync("./public/feed.json", feed.json1());
-  fs.writeFileSync("./public/feed.atom", feed.atom1());
+  fs.writeFileSync("./public/atom.xml", feed.atom1());
 })();
