@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import {
   Heading,
   InputGroup,
@@ -6,13 +6,12 @@ import {
   Flex,
   Image,
   Input,
-  InputRightElement,
   InputLeftAddon,
   Button,
   Text,
   useToast,
-  useColorMode
-} from '@chakra-ui/react';
+  useColorMode,
+} from "@chakra-ui/react";
 
 const Subscribe = () => {
   const [loading, setLoading] = useState(false);
@@ -21,31 +20,31 @@ const Subscribe = () => {
   const toast = useToast();
   const { colorMode } = useColorMode();
   const bgColor = {
-    light: 'blue.100',
-    dark: 'blue.800'
+    light: "blue.100",
+    dark: "blue.800",
   };
   const borderColor = {
-    light: 'blue.200',
-    dark: 'blue.800'
+    light: "blue.200",
+    dark: "blue.800",
   };
   const bgInputColor = {
-    light: 'white',
-    dark: 'blue.800'
-  }
+    light: "white",
+    dark: "blue.800",
+  };
 
   const subscribe = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch('/api/subscribe', {
+    const res = await fetch("/api/subscribe", {
       body: JSON.stringify({
         email: inputEl.current.value,
         first_name: nameInputEl.current.value,
       }),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      method: 'POST'
+      method: "POST",
     });
 
     setLoading(false);
@@ -53,24 +52,24 @@ const Subscribe = () => {
 
     if (error) {
       toast({
-        title: 'An error occurred.',
+        title: "An error occurred.",
         description: error,
-        status: 'error',
+        status: "error",
         duration: 3000,
-        isClosable: true
+        isClosable: true,
       });
 
       return;
     }
 
-    inputEl.current.value = '';
-    nameInputEl.current.value = '';
+    inputEl.current.value = "";
+    nameInputEl.current.value = "";
     toast({
-      title: 'Success!',
-      description: 'Enhorabuena! Te acabas de suscribir.',
-      status: 'success',
+      title: "Success!",
+      description: "Enhorabuena! Te acabas de suscribir.",
+      status: "success",
       duration: 3000,
-      isClosable: true
+      isClosable: true,
     });
   };
 
@@ -89,15 +88,19 @@ const Subscribe = () => {
           Suscríbete a mi Newsletter Manteniendo Código
         </Heading>
         <Box w={{ base: "50%", sm: "40%", md: "20%" }} my={{ base: 4, md: 4 }}>
-          <Image src="/static/images/newsletter/art.png" size="100%" rounded="1rem" />
+          <Image
+            src="/static/images/newsletter/art.png"
+            size="100%"
+            rounded="1rem"
+          />
         </Box>
       </Flex>
       <Text>
-        Recibe emails sobre cómo hacer mejor código para mantener nuestro software sin sufrir, cómo mejorar en tu carrera profesional como Frontend, y cómo influye nuestra salud en todo esto. 
-      </Text>
-      <br/>
-      <Text>
-        Pero prometo no hacerlo demasiado frecuente para no llenarte la bandeja de entrada. 💌
+        Únete a otros desarrolladores y suscríbete a la newsletter de
+        Manteniendo Código. Cada dos semanas, escribo sobre temas para
+        reflexionar y desarrollar skills para convertirnos en mejores
+        desarrolladores. Y comparto un enlace sobre <i>Better Code</i>,{" "}
+        <i>Developer Growth</i> y <i>Wellbeing</i> 💌
       </Text>
       <InputGroup size="md" mt={4}>
         <InputLeftAddon children="Name" />
@@ -107,10 +110,7 @@ const Subscribe = () => {
           placeholder="Fulanito"
           ref={nameInputEl}
           type="text"
-
         />
-        {/* <InputRightElement width="12rem" mr={-8}> */}
-        {/* </InputRightElement> */}
       </InputGroup>
       <InputGroup size="md" my={4}>
         <InputLeftAddon children="Email" />
@@ -120,16 +120,9 @@ const Subscribe = () => {
           placeholder="hola@fulanito.com"
           ref={inputEl}
           type="email"
-
         />
-        {/* <InputRightElement width="12rem" mr={-8}> */}
-        {/* </InputRightElement> */}
       </InputGroup>
-      <Button
-        isLoading={loading}
-        colorScheme="purple"
-        onClick={subscribe}
-      >
+      <Button isLoading={loading} colorScheme="purple" onClick={subscribe}>
         Subscribe
       </Button>
     </Box>
