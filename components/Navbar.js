@@ -14,7 +14,6 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerCloseButton,
-  Input,
   DrawerFooter,
   useDisclosure,
   useBreakpointValue,
@@ -28,12 +27,18 @@ const StickyNav = styled(Flex)`
 `;
 
 const links = [
-  {name: 'Newsletter', link: '/newsletter'},
-  {name: '📝 Blog', link: '/blog'},
-  {name: '👨‍💻 Sobre mí', link: '/about'},
+  { name: "Newsletter", link: "/newsletter" },
+  { name: "📝 Blog", link: "/blog" },
+  { name: "👨‍💻 Sobre mí", link: "/about" },
 ];
 
-const Item = ({link}) => (<NextLink href={link.link} passHref><Button as="a" variant="ghost" p={[1, 4]} style={{fontWeight: 600}}>{link.name}</Button></NextLink>);
+const Item = ({ link }) => (
+  <NextLink href={link.link} passHref>
+    <Button as="a" variant="ghost" p={[1, 4]} style={{ fontWeight: 600 }}>
+      {link.name}
+    </Button>
+  </NextLink>
+);
 
 const Hamburger = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -68,7 +73,9 @@ const Hamburger = () => {
                     🏡 Home
                   </Button>
                 </NextLink>
-                {links.map(link => <Item key={link.link} link={link} />)}
+                {links.map((link) => (
+                  <Item key={link.link} link={link} />
+                ))}
               </Box>
             </DrawerBody>
 
@@ -90,7 +97,11 @@ const Hamburger = () => {
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const showTopNavbar = useBreakpointValue({ base: false, sm: false, md: true });
+  const showTopNavbar = useBreakpointValue({
+    base: false,
+    sm: false,
+    md: true,
+  });
 
   const navBgColor = {
     light: "white",
@@ -123,7 +134,9 @@ const Navbar = () => {
         </NextLink>
         {showTopNavbar ? (
           <Box>
-            {links.map(link => <Item key={link} link={link} />)}
+            {links.map((link) => (
+              <Item key={link.link} link={link} />
+            ))}
             <IconButton
               aria-label="Toggle dark mode"
               ml={4}
