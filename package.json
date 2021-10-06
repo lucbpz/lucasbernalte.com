@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "postbuild": "node .next/server/scripts/generate-rss.js",
     "start": "next start",
     "prettier": "prettier --write \"**/*.{html,js,json,md,mdx,yml}\""
   },
