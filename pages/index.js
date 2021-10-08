@@ -1,12 +1,20 @@
-import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack, Image } from '@chakra-ui/react';
+import React from "react";
+import {
+  useColorMode,
+  Heading,
+  Text,
+  Flex,
+  Stack,
+  Image,
+} from "@chakra-ui/react";
 
-import Container from '../components/Container';
-import BlogPost from '../components/BlogPost';
-import Subscribe from '../components/Subscribe';
-import {MAX_WIDTH} from '../lib/constants';
-import { getAllPosts } from '../lib/api'
-import Hero from '../components/Hero';
+import Container from "../components/Container";
+import BlogPost from "../components/BlogPost";
+import Subscribe from "../components/Subscribe";
+import { MAX_WIDTH } from "../lib/constants";
+import { getAllPosts } from "../lib/api";
+import Hero from "../components/Hero";
+import { generateRssFeed } from "../lib/rss";
 
 const Index = ({ allPosts }) => {
   const { colorMode } = useColorMode();
@@ -105,16 +113,18 @@ export default Index;
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'summary',
-    'content',
-  ])
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "summary",
+    "content",
+  ]);
+
+  generateRssFeed(allPosts);
 
   return {
     props: { allPosts },
-  }
+  };
 }

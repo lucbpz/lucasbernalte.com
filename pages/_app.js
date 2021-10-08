@@ -71,6 +71,12 @@ const App = ({ Component, pageProps }) => {
               data-domain="lucasbernalte.com"
               src="https://plausible.io/js/plausible.js"
             ></script>
+            <link
+              rel="alternate"
+              type="application/rss+xml"
+              title="RSS"
+              href="/feed.xml"
+            />
           </Head>
           <DefaultSeo {...SEO} />
           <Component {...pageProps} />
