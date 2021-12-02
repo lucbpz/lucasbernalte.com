@@ -17,7 +17,7 @@ const BlogSeo = ({ title, summary, date, url, image, readingTime }) => {
   const searchParams = new URLSearchParams(microLinkCardParams);
 
   const api =
-    "https://microlink.vercel.app/?adblock=false&waitForTimeout=1500&meta=false&screenshot&element=%23screenshot&embed=screenshot.url&url=";
+    "https://i.microlink.io/?adblock=false&waitForTimeout=1500&meta=false&screenshot&element=%23screenshot&embed=screenshot.url&url=";
   const cardUrl = `https://cards.microlink.io/?preset=smhutch%26${encodeURIComponent(
     searchParams.toString()
   )}`;

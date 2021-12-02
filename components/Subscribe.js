@@ -71,6 +71,7 @@ const Subscribe = () => {
       duration: 3000,
       isClosable: true,
     });
+    plausible("newsletter-subscription");
   };
 
   return (

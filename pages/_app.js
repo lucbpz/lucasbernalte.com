@@ -77,6 +77,10 @@ const App = ({ Component, pageProps }) => {
               title="RSS"
               href="/feed.xml"
             />
+            <script>
+              window.plausible = window.plausible || function(){" "}
+              {(window.plausible.q = window.plausible.q || []).push(arguments)}
+            </script>
           </Head>
           <DefaultSeo {...SEO} />
           <Component {...pageProps} />
