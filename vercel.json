@@ -11,6 +11,10 @@
       {
         "source": "/notion-simple-zettelkasten",
         "destination": "https://lucasbernalte.notion.site/Zettelkasten-9d95b6ca851245d8ada8f35a8c59c550"
+      },
+      {
+        "source": "/slides/docker-extensions",
+        "destination": "https://github.com/lucbpz/talks/blob/main/expanding-docker-with-extensions/Expanding%20Docker%20capabilities%20with%20Extensions.pdf"
       }
     ],
     "headers": [
