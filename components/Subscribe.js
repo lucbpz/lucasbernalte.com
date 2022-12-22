@@ -79,30 +79,36 @@ const Subscribe = () => {
       border="1px solid"
       borderColor={borderColor[colorMode]}
       bg={bgColor[colorMode]}
-      borderRadius={32}
-      padding={12}
+      borderRadius={16}
+      px={6}
+      py={8}
       my={4}
       w="100%"
     >
-      <Flex align="center" justify="center" flexDirection="column">
-        <Heading as="h5" size="lg" mb={2}>
-          Suscríbete a mi Newsletter Manteniendo Código
-        </Heading>
-        <Box w={{ base: "50%", sm: "40%", md: "20%" }} my={{ base: 4, md: 4 }}>
+      <Flex
+        align={["center", "start"]}
+        justify="center"
+        flexDirection={{ base: "column", md: "row" }}
+        style={{ gap: 16 }}
+      >
+        <Box w={{ base: "50%", sm: "40%", md: "40%" }}>
           <Image
             src="/static/images/newsletter/art.png"
             size="100%"
             rounded="1rem"
           />
         </Box>
+        <div>
+          <Heading as="h5" size="lg" mb={2}>
+            Suscríbete a mi Newsletter Manteniendo Código
+          </Heading>
+          <Text>
+            Escribo sobre temas que nos convierten en mejores desarrolladores.
+            Tendrás en cada edición un enlace sobre <i>Better Code</i>,{" "}
+            <i>Developer Growth</i> y <i>Wellbeing</i> 💌
+          </Text>
+        </div>
       </Flex>
-      <Text>
-        Únete a otros desarrolladores y suscríbete a la newsletter de
-        Manteniendo Código. Cada dos semanas, escribo sobre temas para
-        reflexionar y desarrollar skills para convertirnos en mejores
-        desarrolladores. Y comparto un enlace sobre <i>Better Code</i>,{" "}
-        <i>Developer Growth</i> y <i>Wellbeing</i> 💌
-      </Text>
       <InputGroup size="md" mt={4}>
         <InputLeftAddon children="Name" />
         <Input
