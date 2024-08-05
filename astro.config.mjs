@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
 import icon from "astro-icon";
 
 // https://astro.build/config
@@ -20,7 +19,4 @@ export default defineConfig({
       },
     }),
   ],
-  adapter: vercel({
-    webAnalytics: { enabled: true },
-  }),
 });
