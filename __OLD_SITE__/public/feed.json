@@ -1,0 +1,49 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Lucas Bernalte",
+  "home_page_url": "https://lucasbernalte.com",
+  "feed_url": "https://lucasbernalte.com/feed.json",
+  "description": "Lucas Bernalte – Frontend, React, JavaScript FullStack Developer.",
+  "author": {
+    "name": "Lucas Bernalte",
+    "url": "https://lucasbernalte.com"
+  },
+  "items": [
+    {
+      "url": "https://lucasbernalte.com/blog/como-generar-thumbnails",
+      "title": "Cómo generar thumbnails automáticamente para tu blog con NextJS y Microlink Cards",
+      "summary": "Utiliza Microlink Cards como servicio de thumbnails y genera thumbnails online automáticamente para cada artículo de tu blog en NextJS sin morir en el intento",
+      "date_modified": "2021-10-06T00:00:07.322Z"
+    },
+    {
+      "url": "https://lucasbernalte.com/blog/por-que-usar-testing-library-en-lugar-de-enzyme",
+      "title": "Por qué usar Testing Library en lugar de Enzyme",
+      "summary": "Análisis entre Enzyme y React Testing Library sobre cómo renderizan los componentes y qué se puede hacer con ambas. Buenas prácticas de testing.",
+      "date_modified": "2021-02-10T11:35:07.322Z"
+    },
+    {
+      "url": "https://lucasbernalte.com/blog/4-cosas-a-tener-en-cuenta-al-crear-componentes-reutilizables",
+      "title": "4 pasos para crear una buena API de componente reusable",
+      "summary": "Cómo crear componentes reutilizables con React para un catálogo de componentes",
+      "date_modified": "2020-12-21T05:35:07.322Z"
+    },
+    {
+      "url": "https://lucasbernalte.com/blog/decidir-que-testear-en-front",
+      "title": "Decidir qué testear en Frontend",
+      "summary": "Cómo hacer tests de forma agnóstica en el front, saber qué tests hacer primero y qué testear",
+      "date_modified": "2020-11-18T05:35:07.322Z"
+    },
+    {
+      "url": "https://lucasbernalte.com/blog/introduciendo-react-query",
+      "title": "Introduciendo React Query",
+      "summary": "La librería para manejar estado asíncrono en React. Otra más? Qué pasa con Redux?",
+      "date_modified": "2020-10-26T05:35:07.322Z"
+    },
+    {
+      "url": "https://lucasbernalte.com/blog/estrenamos-la-web",
+      "title": "Estrenamos la web",
+      "summary": "Estrenamos la web",
+      "date_modified": "2020-10-03T05:35:07.322Z"
+    }
+  ]
+}

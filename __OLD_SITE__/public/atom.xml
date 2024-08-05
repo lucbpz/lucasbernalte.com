@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://lucasbernalte.com</id>
+    <title>Lucas Bernalte</title>
+    <updated>2022-12-22T02:38:42.981Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Lucas Bernalte</name>
+        <email>lucas.bernalte@gmail.com</email>
+        <uri>https://lucasbernalte.com</uri>
+    </author>
+    <link rel="alternate" href="https://lucasbernalte.com"/>
+    <link rel="self" href="https://lucasbernalte.com/atom.xml"/>
+    <subtitle>Lucas Bernalte – Frontend, React, JavaScript FullStack Developer.</subtitle>
+    <entry>
+        <title type="html"><![CDATA[Cómo generar thumbnails automáticamente para tu blog con NextJS y Microlink Cards]]></title>
+        <id>https://lucasbernalte.com/blog/como-generar-thumbnails</id>
+        <link href="https://lucasbernalte.com/blog/como-generar-thumbnails"/>
+        <updated>2021-10-06T00:00:07.322Z</updated>
+        <summary type="html"><![CDATA[Utiliza Microlink Cards como servicio de thumbnails y genera thumbnails online automáticamente para cada artículo de tu blog en NextJS sin morir en el intento]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Por qué usar Testing Library en lugar de Enzyme]]></title>
+        <id>https://lucasbernalte.com/blog/por-que-usar-testing-library-en-lugar-de-enzyme</id>
+        <link href="https://lucasbernalte.com/blog/por-que-usar-testing-library-en-lugar-de-enzyme"/>
+        <updated>2021-02-10T11:35:07.322Z</updated>
+        <summary type="html"><![CDATA[Análisis entre Enzyme y React Testing Library sobre cómo renderizan los componentes y qué se puede hacer con ambas. Buenas prácticas de testing.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4 pasos para crear una buena API de componente reusable]]></title>
+        <id>https://lucasbernalte.com/blog/4-cosas-a-tener-en-cuenta-al-crear-componentes-reutilizables</id>
+        <link href="https://lucasbernalte.com/blog/4-cosas-a-tener-en-cuenta-al-crear-componentes-reutilizables"/>
+        <updated>2020-12-21T05:35:07.322Z</updated>
+        <summary type="html"><![CDATA[Cómo crear componentes reutilizables con React para un catálogo de componentes]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Decidir qué testear en Frontend]]></title>
+        <id>https://lucasbernalte.com/blog/decidir-que-testear-en-front</id>
+        <link href="https://lucasbernalte.com/blog/decidir-que-testear-en-front"/>
+        <updated>2020-11-18T05:35:07.322Z</updated>
+        <summary type="html"><![CDATA[Cómo hacer tests de forma agnóstica en el front, saber qué tests hacer primero y qué testear]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introduciendo React Query]]></title>
+        <id>https://lucasbernalte.com/blog/introduciendo-react-query</id>
+        <link href="https://lucasbernalte.com/blog/introduciendo-react-query"/>
+        <updated>2020-10-26T05:35:07.322Z</updated>
+        <summary type="html"><![CDATA[La librería para manejar estado asíncrono en React. Otra más? Qué pasa con Redux?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Estrenamos la web]]></title>
+        <id>https://lucasbernalte.com/blog/estrenamos-la-web</id>
+        <link href="https://lucasbernalte.com/blog/estrenamos-la-web"/>
+        <updated>2020-10-03T05:35:07.322Z</updated>
+        <summary type="html"><![CDATA[Estrenamos la web]]></summary>
+    </entry>
+</feed>

@@ -1,0 +1,89 @@
+---
+title: "Decidir qué testear en Frontend"
+description: "Cómo hacer tests de forma agnóstica en el front, saber qué tests hacer primero y qué testear"
+date: "2020-11-18T05:35:07.322Z"
+image: "/images/testing/decidir-que-testear-en-frontend.png"
+---
+
+![testing](/images/testing/QA-engineers-bro.png)
+<a style="margin: '0 auto'" href="https://stories.freepik.com/work">Illustration by Freepik Stories</a>
+
+## Mi visión del testing en Frontend
+
+Desde hace un tiempo me he interesado un poco por encima de la media (tras unos cálculos exhaustivos) en el testing, y especialmente en la parte donde he estado trabajando más, en el Front. En mis últimos proyectos he trabajado con React y con Polymer. Si buscas cómo hacer tests con unos y con otros seguramente te salgan cosas muy variadas.
+
+La realidad es que cualquier framework en Front puede testearse igual.
+
+La realidad es que cualquier framework en Front debería poder testearse igual (o casi).
+
+## TL;DR
+
+- El conocimiento que se suele encontrar de testing se basa mucho en que aprendas las herramientas, pero no qué testear.
+- Muchas veces se tiene un concepto erróneo del testing en front, lo que hace que se pongan esfuerzos en cosas no tan eficaces ([no olvidar cuál el propósito de hacer tests](https://twitter.com/lucasbernalte/status/1328609820761583617)).
+- Todos los frameworks en Front deberían testearse igual.
+- Mira a tu componente a los ojos e identifica visualmente qué deberías testear.
+- Pon los esfuerzos donde haya más ratio de cosas testeadas por tiempo invertido, es lo que más valor aportará.
+
+## Identifica qué testear
+
+Las primeras búsquedas en google sobre testear componentes de React con Jest te redirigen a algunos enlaces donde te explican el setup de Jest con React y hacer un test. Si especificamos un poco más y buscamos algo del tipo "what to test" o "qué testear en front" o "cómo saber qué testear en front" tampoco encontramos mucho al respecto.
+
+Cuando un desarrollador front cambia de framework o de proyecto, el testing no es algo que tendría que reaprender. Si la herramienta usada para testear es diferente, la sintaxis es diferente o hay algo extra que hay que hacer, no pasaría nada, sin embargo ese concepto de saber qué testear en componentes de front no cambia.
+
+Porque lo ideal es testear el frontend tal y como ves los componentes, con tus propios ojos. En definitiva, tal y como lo vería un usuario de tu aplicación.
+
+---
+
+Elige un componente. Crea el típico test:
+
+```jsx
+describe('MyComponent', () => {
+	it('should render correctly')
+}
+```
+
+Si te lo estás preguntando, los repos más top en Github y de los desarrolladores más top es muy probable que contengan tests con este típico _should render correctly_ :).
+
+Pregúntate qué sería necesario definir para que `MyComponent` se renderizara correctamente. Para ello, la manera más sencilla sería irnos al browser, encontrarlo dentro de nuestra vista, o dentro de nuestro catálogo e identificar qué nos ha llevado a decir que estaba viéndose correctamente (puede ser que contenga un texto, un icono, un botón, etc). No tendríamos forma de identificar que tiene una propiedad `myProperty` con valor `1` , así que no deberíamos poner nuestro foco en testear eso (a lo mejor esto cambiaría si tuviéramos tiempo infinito para testear, pero normalmente no es la realidad).
+
+Testea qué debería verse (no te centres demasiado en el cómo debería verse si no es muy importante, [no estamos hablando de visual testing](https://applitools.com/blog/visual-testing-a-guide-for-front-end-developers/)), testea qué debería de pasar cuando el usuario realiza una acción (un click, escribir en un input..) y qué debería de pasar después de esa acción.
+
+## Pon los esfuerzos en el test que aporte más valor
+
+Es complicado decir un punto donde poner los esfuerzos a la hora de hacer tests de componentes en front - pero no es complicado decir donde NO debemos poner los esfuerzos.
+
+Hace unos meses di con [un artículo que expresa al 100% mi visión sobre el testing](https://kentcdodds.com/blog/write-tests) de [Kent C. Dodds](https://twitter.com/kentcdodds) que hace un análisis de una frase del CEO de Vercel, nada más y nada menos. Lo más interesante del artículo es como pone a prueba la clásica pirámide de testing para comentar que esa pirámide no es la ideal si no dejamos de lado el propósito de hacer tests en el front: **si hay algo mal en el código, debería estar fallando algún test.**
+
+Si ponemos los esfuerzos en hacer tests unitarios de todo, aislando cada pequeña parte que tengamos fuera del contexto, tendríamos que hacer muchos tests para comprobar una pequeña funcionalidad. Sin embargo, con un solo test de integración cubrimos mucho más que con varios tests unitarios, lo que nos proporciona un buen mecanismo para empezar a meterle tests a un componente, e incluso para entender cómo funciona un componente que no tiene tests. Se introduce un concepto nuevo, el de "Test de Integración" pero no hay que confundirlos con los tests de integración de Backend. Estos tests en el front se parecen mucho más a los tests unitarios que a otra cosa - simplemente la unidad pasa a ser un componente contenedor de otros componentes.
+
+Un ejemplo de qué puede pasar si sólo tenemos tiempo para hacer un test y hemos hecho un test unitario:
+
+[https://twitter.com/erinfranmc/status/1148986961207730176](https://twitter.com/erinfranmc/status/1148986961207730176?s=20)
+
+> Un Test de integración en Front se parece mucho a un Test unitario. Solamente cambia la unidad, que pasa a ser un componente contenedor de otros componentes.
+
+[https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests](https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests)
+
+Buenos ejemplos de cosas que testear:
+
+1. Comprobar que se ve bien el componente (decide qué significa “bien”).
+2. Hacer click en un botón y comprobar que se abre una modal.
+3. Cerrar la modal y esperar a que se vea el componente con otro estado.
+
+pueden hacerse dentro del mismo test, y podríamos decir que este test "pasa a ser de integración", pero lo ejecutaremos dentro de una suite de tests con nuestro runner de tests unitarios, al ladito de los tests unitarios.
+
+No te preocupes por las opiniones que puedan surgir sobre el testing. Suele haber más opiniones que análisis sobre este tema. Una vez que pones a prueba estos conceptos, empiezas a ver el verdadero valor de los tests. Si recuerdas siempre el propósito que comentamos anteriormente, y empiezas a probar como un usuario interactuaría con tu componente, estarás optimizando el tiempo a la vez que agregando mucha más robustez a tu aplicación. Después de hacer esto, cuando empieces a desarrollar una feature nueva sobre el mismo componente, y veas que algo no funciona, y era por el test, verás que además el test que hiciste en su momento te está ayudando a ti. En ese momento sabrás que el "[Testing Trophy](https://pbs.twimg.com/media/DVUoM94VQAAzuws.jpg)" es tuyo.
+
+[https://twitter.com/kentcdodds/status/960723172591992832](https://twitter.com/kentcdodds/status/960723172591992832)
+
+---
+
+Si te ha gustado este artículo, compártelo. Quieres hablar más sobre este tema? Empecemos una conversación en [twitter](https://twitter.com/lucasbernalte). Sería interesante compartir buenos y malos ejemplos, y me gustaría saber qué opináis sobre esto, y si soléis hacer tests, cómo los hacéis y si tenéis alguna duda.
+
+Para estar al tanto de otras cosas en las que voy trabajando y artículos que voy seleccionando, como algunos que comparto en este post, puedes suscribirte a mi newsletter.
+
+```javascript
+expect(newSuscribers).toBe(oldSuscribers + 1);
+```
+
+---
