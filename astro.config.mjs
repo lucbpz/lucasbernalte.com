@@ -6,7 +6,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-nano-demo.vercel.app",
+  site: "https://lucasbernalte.com",
   integrations: [
     mdx(),
     sitemap(),
