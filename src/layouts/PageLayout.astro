@@ -3,6 +3,7 @@ import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { SITE } from "@consts";
+import { Fathom } from "astro-fathom";
 
 type Props = {
   title: string;
@@ -23,6 +24,7 @@ const { title, description, image, additionalMeta } = Astro.props;
       image={image}
       additionalMeta={additionalMeta}
     />
+    <Fathom site="AXPFI" />
   </head>
   <body>
     <Header />

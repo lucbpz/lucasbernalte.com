@@ -49,6 +49,9 @@ importers:
       astro:
         specifier: ^4.5.6
         version: 4.5.6(@types/node@20.14.13)(typescript@5.4.2)
+      astro-fathom:
+        specifier: ^2.0.0
+        version: 2.0.0
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1759,6 +1762,12 @@ packages:
         integrity: sha512-CGaBseNtunAV2DCpwBXqTKq8+9Tw65XZetMaC0FsMoZuLj0gxNIkbCf2QyKYScVrNOU7/ayfNdVw8ZCSHBiqCg==,
       }
     engines: { node: ^14.18.0 || >=16.0.0 }
+
+  astro-fathom@2.0.0:
+    resolution:
+      {
+        integrity: sha512-Z0UXgAKrfJ43IRPhPzoXWOapVXF250AefvLaphsJViok551UpzIIDuxkUYX2CBXDtqIhH54KYPDaA9V9XyclgA==,
+      }
 
   astro-icon@1.1.0:
     resolution:
@@ -7339,6 +7348,8 @@ snapshots:
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
+
+  astro-fathom@2.0.0: {}
 
   astro-icon@1.1.0:
     dependencies:
