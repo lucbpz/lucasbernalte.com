@@ -2,7 +2,7 @@
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Fathom from "@components/Fathom.astro";
+import Analytics from "@components/Analytics.astro";
 
 import { SITE } from "@consts";
 
@@ -25,7 +25,7 @@ const { title, description, image, additionalMeta } = Astro.props;
       image={image}
       additionalMeta={additionalMeta}
     />
-    <Fathom />
+    <Analytics />
   </head>
   <body>
     <Header />
