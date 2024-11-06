@@ -33,15 +33,19 @@ export const PROJECTS: Metadata = {
 
 export const SOCIALS: Socials = [
   {
-    NAME: "twitter",
-    HREF: "https://twitter.com/lucasbernalte",
+    NAME: "linkedin",
+    HREF: "https://www.linkedin.com/in/lucasbernalte",
+  },
+  {
+    NAME: "threads",
+    HREF: "http://threads.net/@lucasbernalte",
+  },
+  {
+    NAME: "bluesky",
+    HREF: "https://bsky.app/profile/lucasbernalte.com",
   },
   {
     NAME: "github",
     HREF: "https://github.com/lucbpz",
-  },
-  {
-    NAME: "linkedin",
-    HREF: "https://www.linkedin.com/in/lucasbernalte",
   },
 ];
