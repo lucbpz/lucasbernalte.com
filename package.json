@@ -11,7 +11,10 @@
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "generate-thumbnail": "node scripts/thumbnail.js"
+    "generate-thumbnail": "node scripts/thumbnail.js",
+    "docker:build": "chmod +x build-and-push.sh && ./build-and-push.sh",
+    "docker:dev": "docker-compose up --build",
+    "docker:prod": "docker-compose up -d"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.9",
@@ -33,6 +36,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^0.32.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "express": "^4.18.2",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.1",
