@@ -1,6 +1,11 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 // Load Vercel configuration
@@ -48,11 +53,11 @@ app.get('/api/getBlogPosts', (req, res) => {
 
 // Serve static files from dist directory
 app.use(express.static(path.join(__dirname, 'dist'), {
-  setHeaders: (res, path) => {
+  setHeaders: (res, filePath) => {
     // Apply headers from vercel.json if they exist
     if (vercelConfig.headers) {
       vercelConfig.headers.forEach(headerConfig => {
-        if (path.match(headerConfig.source)) {
+        if (filePath.match(headerConfig.source)) {
           headerConfig.headers.forEach(header => {
             res.set(header.key, header.value);
           });
