@@ -2,7 +2,7 @@
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Analytics from "@components/Analytics.astro";
+import Analytics from "@vercel/analytics/astro";
 
 import { SITE } from "@consts";
 
@@ -25,7 +25,6 @@ const { title, description, image, additionalMeta } = Astro.props;
       image={image}
       additionalMeta={additionalMeta}
     />
-    <Analytics />
   </head>
   <body>
     <Header />
@@ -33,5 +32,6 @@ const { title, description, image, additionalMeta } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <Analytics />
   </body>
 </html>

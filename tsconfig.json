@@ -6,5 +6,6 @@
     "paths": {
       "@*": ["./src/*"]
     }
-  }
+  },
+  "exclude": ["__OLD_SITE__"]
 }
