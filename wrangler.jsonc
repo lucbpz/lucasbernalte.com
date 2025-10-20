@@ -2,14 +2,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lucasbernalte-com",
   "compatibility_date": "2025-10-20",
-  "compatibility_flags": ["nodejs_compat"],
-  "main": "./dist/_worker.js/index.js",
+  //   "compatibility_flags": ["nodejs_compat"],
+  //   "main": "./dist/_worker.js/index.js",
   "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "upload_source_maps": true
+    "directory": "./dist"
+    // "binding": "ASSETS"
+  }
+  //   "observability": {
+  //     "enabled": true
+  //   },
+  //   "upload_source_maps": true
 }
