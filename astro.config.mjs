@@ -4,6 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://lucasbernalte.com",
@@ -19,4 +21,6 @@ export default defineConfig({
       },
     }),
   ],
+  output: "server",
+  adapter: cloudflare(),
 });
